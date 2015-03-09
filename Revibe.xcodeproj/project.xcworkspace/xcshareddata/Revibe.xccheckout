@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>7A34D089-B406-4B13-99FE-E45CEBCB7F15</string>
+	<key>IDESourceControlProjectName</key>
+	<string>Revibe</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>DE8F36FB7446CDE2CD5D791230D8277C06E19E11</key>
+		<string>github.com:stheakanath/Revibe.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>Revibe.xcodeproj</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>DE8F36FB7446CDE2CD5D791230D8277C06E19E11</key>
+		<string>../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>github.com:stheakanath/Revibe.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>DE8F36FB7446CDE2CD5D791230D8277C06E19E11</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>DE8F36FB7446CDE2CD5D791230D8277C06E19E11</string>
+			<key>IDESourceControlWCCName</key>
+			<string>Revibe</string>
+		</dict>
+	</array>
+</dict>
+</plist>

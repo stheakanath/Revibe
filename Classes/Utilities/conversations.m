@@ -32,12 +32,11 @@ void CreateConversation(PFUser *user, NSString *message)
 	{
 		if (error == nil)
 		{
-			PFObject *title = [objects firstObject];
 
 			PFObject *conversation = [PFObject objectWithClassName:PF_CONVERSATIONS_CLASS_NAME];
 			conversation[PF_CONVERSATIONS_USER1] = [PFUser currentUser];
 			conversation[PF_CONVERSATIONS_USER2] = user;
-			conversation[PF_CONVERSATIONS_TITLE] = title[PF_TITLES_TITLE];
+			conversation[PF_CONVERSATIONS_TITLE] = @"Blank";
 			conversation[PF_CONVERSATIONS_LASTKEY] = @"";
 			conversation[PF_CONVERSATIONS_LASTMESSAGE] = message;
 			conversation[PF_CONVERSATIONS_LASTCREATED] = [NSDate date];

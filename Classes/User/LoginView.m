@@ -99,6 +99,12 @@
 	[self dismissViewControllerAnimated:YES completion:nil];
 }
 
+- (BOOL) connectedToInternet
+{
+    NSString *URLString = [NSString stringWithContentsOfURL:[NSURL URLWithString:@"http://www.google.com"]];
+    return ( URLString != NULL ) ? YES : NO;
+}
+
 //-------------------------------------------------------------------------------------------------------------------------------------------------
 - (IBAction)actionLogin:(id)sender
 //-------------------------------------------------------------------------------------------------------------------------------------------------
@@ -121,7 +127,16 @@
 			[ProgressHUD showSuccess:[NSString stringWithFormat:@"Welcome back %@!", user[PF_USER_USERNAME]]];
 			[self dismissViewControllerAnimated:YES completion:^{ if (delegate != nil) [delegate didLoginSucessfully]; }];
 		}
-		else [ProgressHUD showError:error.userInfo[@"error"]];
+        else  {
+            if (!connected()) {
+                NSLog(@"hello");
+                [ProgressHUD showError:@"Not connected to internet!"];
+            } else {
+                NSLog(@"WATWATWATWAT");
+                [ProgressHUD showError:error.userInfo[@"error"]];
+            }
+            
+        }
 	}];
 }
 

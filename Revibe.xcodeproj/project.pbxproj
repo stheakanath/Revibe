@@ -116,6 +116,7 @@
 		52E0D5B61A64E9B40061D88B /* contacts_background.png in Resources */ = {isa = PBXBuildFile; fileRef = 52E0D5B51A64E9B40061D88B /* contacts_background.png */; };
 		52E0D5BC1A6500130061D88B /* compose_chatbox_background.png in Resources */ = {isa = PBXBuildFile; fileRef = 52E0D5BB1A6500130061D88B /* compose_chatbox_background.png */; };
 		52E0D5C01A65AC860061D88B /* blocked_background.png in Resources */ = {isa = PBXBuildFile; fileRef = 52E0D5BF1A65AC860061D88B /* blocked_background.png */; };
+		EBA2316F1AAE59D900275281 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = EBA2316E1AAE59D900275281 /* Reachability.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -256,6 +257,8 @@
 		52E0D5B51A64E9B40061D88B /* contacts_background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = contacts_background.png; sourceTree = "<group>"; };
 		52E0D5BB1A6500130061D88B /* compose_chatbox_background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = compose_chatbox_background.png; sourceTree = "<group>"; };
 		52E0D5BF1A65AC860061D88B /* blocked_background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = blocked_background.png; sourceTree = "<group>"; };
+		EBA2316D1AAE59D900275281 /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
+		EBA2316E1AAE59D900275281 /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -350,6 +353,8 @@
 				2958FE401A55F17600137C0D /* RecipientsView.h */,
 				2958FE411A55F17600137C0D /* RecipientsView.m */,
 				2958FE421A55F17600137C0D /* RecipientsView.xib */,
+				EBA2316D1AAE59D900275281 /* Reachability.h */,
+				EBA2316E1AAE59D900275281 /* Reachability.m */,
 			);
 			path = Chat;
 			sourceTree = "<group>";
@@ -734,7 +739,7 @@
 				TargetAttributes = {
 					29EB240419E9292500D7AA97 = {
 						CreatedOnToolsVersion = 6.0.1;
-						DevelopmentTeam = S442EUWAWZ;
+						DevelopmentTeam = SNE84GN9W7;
 					};
 				};
 			};
@@ -873,6 +878,7 @@
 				29038C501A5BE5650094080B /* ChatCell.m in Sources */,
 				2958FE7F1A55F17600137C0D /* NavigationController.m in Sources */,
 				2958FE8A1A55F17600137C0D /* ContactsView.m in Sources */,
+				EBA2316F1AAE59D900275281 /* Reachability.m in Sources */,
 				29EB240B19E9292500D7AA97 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -897,8 +903,8 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: Navepreet Brar (S442EUWAWZ)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Navepreet Brar (S442EUWAWZ)";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Kuriakose Theakanath (N2RNQ2TJP2)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				COPY_PHASE_STRIP = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -918,7 +924,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
-				PROVISIONING_PROFILE = "f62d2095-52bf-48e5-85f3-1a9bce66117d";
+				PROVISIONING_PROFILE = "";
 				SDKROOT = iphoneos;
 			};
 			name = Debug;
@@ -940,8 +946,8 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: Navepreet Brar (S442EUWAWZ)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Navepreet Brar (S442EUWAWZ)";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Kuriakose Theakanath (N2RNQ2TJP2)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				COPY_PHASE_STRIP = YES;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -954,9 +960,9 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
-				PROVISIONING_PROFILE = "f62d2095-52bf-48e5-85f3-1a9bce66117d";
+				PROVISIONING_PROFILE = "";
 				SDKROOT = iphoneos;
-				VALIDATE_PRODUCT = YES;
+				VALIDATE_PRODUCT = NO;
 			};
 			name = Release;
 		};
@@ -1019,8 +1025,8 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: Navepreet Brar (S442EUWAWZ)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Navepreet Brar (S442EUWAWZ)";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Kuriakose Theakanath (N2RNQ2TJP2)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				COPY_PHASE_STRIP = YES;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -1033,9 +1039,9 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
-				PROVISIONING_PROFILE = "f62d2095-52bf-48e5-85f3-1a9bce66117d";
+				PROVISIONING_PROFILE = "";
 				SDKROOT = iphoneos;
-				VALIDATE_PRODUCT = YES;
+				VALIDATE_PRODUCT = NO;
 			};
 			name = Distribution;
 		};
