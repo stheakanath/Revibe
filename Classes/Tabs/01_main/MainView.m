@@ -4,6 +4,7 @@
 
 #import "AppConstant.h"
 #import "utilities.h"
+#import "conversations.h"
 
 #import "MainView.h"
 #import "MainCell.h"
@@ -41,6 +42,22 @@
 	return self;
 }
 
+- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
+    // Return YES if you want the specified item to be editable.
+    return YES;
+}
+
+// Override to support editing the table view.
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (editingStyle == UITableViewCellEditingStyleDelete) {
+        //add code here for when you hit delete
+        NSLog(@"I clickde deleted");
+        DeleteMessageItem(conversations[indexPath.row]);
+        [conversations removeObjectAtIndex:indexPath.row];
+        [self.tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
+    }
+}
+
 //-------------------------------------------------------------------------------------------------------------------------------------------------
 - (void)viewDidLoad
 //-------------------------------------------------------------------------------------------------------------------------------------------------
@@ -58,6 +75,7 @@
 	imageBagde.frame = CGRectMake(26, 3, imageBagde.frame.size.width, imageBagde.frame.size.height);
 	[self.tabBarController.tabBar addSubview:imageBagde];
 	imageBagde.hidden = YES;
+    self.tableView.allowsMultipleSelectionDuringEditing = NO;
 	//---------------------------------------------------------------------------------------------------------------------------------------------
 	self.refreshControl = [[UIRefreshControl alloc] init];
 	[self.refreshControl addTarget:self action:@selector(loadConversations) forControlEvents:UIControlEventValueChanged];

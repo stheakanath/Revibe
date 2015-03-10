@@ -9,5 +9,6 @@ void		CreateFirebaseItem				(PFObject *conversation, NSString *text);
 void		UpdateConversation				(PFObject *conversation, NSString *key, NSString *message);
 void		UpdateConversationUnread		(PFObject *conversation);
 void		UpdateConversationLiked			(PFObject *conversation, NSMutableArray *liked);
+void        DeleteMessageItem               (PFObject *message);
 
 void		UpdateUserLikes					(PFObject *conversation, int amout);

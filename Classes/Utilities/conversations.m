@@ -136,6 +136,15 @@ void UpdateConversationLiked(PFObject *conversation, NSMutableArray *liked)
 	}];
 }
 
+void DeleteMessageItem(PFObject *message)
+//-------------------------------------------------------------------------------------------------------------------------------------------------
+{
+    [message deleteInBackgroundWithBlock:^(BOOL succeeded, NSError *error)
+    {
+        if (error != nil) NSLog(@"DeleteMessageItem delete error.");
+    }];
+}
+
 //-------------------------------------------------------------------------------------------------------------------------------------------------
 void UpdateUserLikes(PFObject *conversation, int amout)
 //-------------------------------------------------------------------------------------------------------------------------------------------------
