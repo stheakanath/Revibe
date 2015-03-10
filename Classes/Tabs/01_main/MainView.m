@@ -54,6 +54,14 @@
         DeleteMessageItem(conversations[indexPath.row]);
         [conversations removeObjectAtIndex:indexPath.row];
         [self.tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
+        UIImageView *noMessageBackgroundView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"noMessageImage.png"]];
+        if (conversations.count == 0) {
+            [noMessageBackgroundView setFrame:self.tableView.frame];
+            self.tableView.backgroundView = noMessageBackgroundView;
+        }
+  
+        
+
     }
 }
 

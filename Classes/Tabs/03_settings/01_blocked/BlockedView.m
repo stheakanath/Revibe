@@ -103,7 +103,7 @@
 	if (cell == nil) cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:@"cell"];
 
 	PFObject *conversation = conversations[indexPath.row];
-	cell.textLabel.text = conversation[PF_CONVERSATIONS_TITLE];
+	cell.textLabel.text = conversation[PF_CONVERSATIONS_LASTMESSAGE];
 	cell.textLabel.font = [UIFont fontWithName:@"Avenir-Medium" size:17];
 
 	cell.accessoryView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"blocked_unblock"]];

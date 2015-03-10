@@ -58,7 +58,14 @@
 {
     
     [super viewDidLoad];
-	self.title = conversation[PF_CONVERSATIONS_TITLE];
+    PFUser *user = [PFUser currentUser];
+
+    if ([conversation[PF_CONVERSATIONS_TITLE] isEqualToString:user[PF_USER_USERNAME]]) {
+        self.title = @"";
+    } else {
+        self.title = conversation[PF_CONVERSATIONS_TITLE];
+    }
+	
 	//---------------------------------------------------------------------------------------------------------------------------------------------
 	self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"button_back"]
 																	 style:UIBarButtonItemStylePlain target:self action:@selector(actionBack)];
@@ -190,7 +197,9 @@
 - (void)actionBlock
 //-------------------------------------------------------------------------------------------------------------------------------------------------
 {
-	NSString *message = [NSString stringWithFormat:@"No longer receive messages from %@?", conversation[PF_CONVERSATIONS_TITLE]];
+	//NSString *message = [NSString stringWithFormat:@"No longer receive messages from %@?", conversation[PF_CONVERSATIONS_TITLE]];
+    NSString *message = [NSString stringWithFormat:@"No longer receive messages from person?"];
+
 	UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:nil message:message delegate:self
 											  cancelButtonTitle:@"Cancel" otherButtonTitles:@"Yes", nil];
 	[alertView show];
