@@ -69,6 +69,7 @@
 	//---------------------------------------------------------------------------------------------------------------------------------------------
 	self.tableView.tableHeaderView = viewHeader;
 	self.tableView.tableFooterView = [[UIView alloc] init];
+    self.tableView.allowsMultipleSelectionDuringEditing = NO;
 	//---------------------------------------------------------------------------------------------------------------------------------------------
 	users1 = [[NSMutableArray alloc] init];
 	users2 = [[NSMutableArray alloc] init];
@@ -77,6 +78,43 @@
 	users5 = [[NSMutableArray alloc] init];
 	//---------------------------------------------------------------------------------------------------------------------------------------------
 	names = [[NSMutableDictionary alloc] init];
+}
+
+- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
+    // Return YES if you want the specified item to be editable.
+    if (indexPath.row == 0 && indexPath.section == 0)
+        return NO;
+    return YES;
+}
+
+// Override to support editing the table view.
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (editingStyle == UITableViewCellEditingStyleDelete) {
+        //add code here for when you hit delete
+        NSLog(@"I clickde deleted");
+        
+        PFQuery *query = [PFQuery queryWithClassName:PF_FRIENDS_CLASS_NAME];
+        [query whereKey:PF_FRIENDS_USER1 equalTo:[PFUser currentUser]];
+        [query whereKey:PF_FRIENDS_USER2 equalTo:users4[indexPath.row]];
+        [query setLimit:1000];
+        [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error)
+         {
+             if (error == nil)
+             {
+                 for (PFObject *object in objects)
+                 {
+                     [object deleteInBackgroundWithBlock:^(BOOL succeeded, NSError *error)
+                      {
+                          if (error != nil) NSLog(@"Delete error delete error.");
+                      }];
+                 }
+             }
+             else [ProgressHUD showError:error.userInfo[@"error"]];
+         }];
+
+        [users4 removeObjectAtIndex:indexPath.row];
+        [self.tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
+    }
 }
 
 //-------------------------------------------------------------------------------------------------------------------------------------------------
@@ -536,6 +574,7 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 //-------------------------------------------------------------------------------------------------------------------------------------------------
 {
+    NSLog(@"%i %i", indexPath.row, indexPath.section);
 	[tableView deselectRowAtIndexPath:indexPath animated:YES];
 	//---------------------------------------------------------------------------------------------------------------------------------------------
 	if ((indexPath.section == 0) || (indexPath.section == 2) || (indexPath.section == 3))
