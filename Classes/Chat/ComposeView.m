@@ -256,7 +256,7 @@
 	NSTimeInterval duration = [[info valueForKey:UIKeyboardAnimationDurationUserInfoKey] doubleValue];
 	[UIView animateWithDuration:duration delay:0 options:UIViewAnimationOptionCurveEaseInOut animations:^{
         heightKeyboard = frame.size.height;
-		viewInput.frame = CGRectMake(0, self.view.frame.size.height - heightKeyboard - 50, 320, 55);
+        viewInput.frame = CGRectMake(0, self.view.frame.size.height - heightKeyboard - 50, 320, 55);
 	} completion:nil];
 }
 
@@ -269,7 +269,7 @@
 	
 	[UIView animateWithDuration:duration delay:0 options:UIViewAnimationOptionCurveEaseInOut animations:^{
 		heightKeyboard = 0;
-		viewInput.frame = CGRectMake(0, 449, 320, 55);
+		viewInput.frame = CGRectMake(0, self.view.frame.size.height - 50, 320, 55);
 	} completion:nil];
 }
 

@@ -144,7 +144,7 @@
     UIImageView *contactsViewBackground = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"contacts_background.png"]];
     [contactsViewBackground setFrame:self.tableView.frame];
     self.tableView.backgroundView = contactsViewBackground;
-    contactsViewBackground.alpha = 0.55f;
+    contactsViewBackground.alpha = 1.0f;
     
 	[super viewDidAppear:animated];
 	//---------------------------------------------------------------------------------------------------------------------------------------------
@@ -574,7 +574,14 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 //-------------------------------------------------------------------------------------------------------------------------------------------------
 {
-    NSLog(@"%i %i", indexPath.row, indexPath.section);
+    
+    NSString *shareText = [NSString stringWithFormat:@"Add me on Revibe, so you can send me nameless messages %@. http://revibeapp.com", [PFUser currentUser]];
+    NSArray *itemsToShare = @[shareText];
+    UIActivityViewController *activityVC = [[UIActivityViewController alloc] initWithActivityItems:itemsToShare applicationActivities:nil];
+    activityVC.excludedActivityTypes = @[];
+    [self presentViewController:activityVC animated:YES completion:nil];
+    
+    NSLog(@"%li %li", (long)indexPath.row, (long)indexPath.section);
 	[tableView deselectRowAtIndexPath:indexPath animated:YES];
 	//---------------------------------------------------------------------------------------------------------------------------------------------
 	if ((indexPath.section == 0) || (indexPath.section == 2) || (indexPath.section == 3))

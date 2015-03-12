@@ -15,7 +15,6 @@
 @interface RecipientsView()
 {
 	NSString *message;
-
 	NSMutableArray *users1;
 	NSMutableArray *users2;
 	NSMutableArray *users3;
@@ -79,6 +78,7 @@
 			if (granted) [self loadUsers4];
 		});
 	});
+
 }
 
 #pragma mark - Backend methods

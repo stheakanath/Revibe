@@ -58,7 +58,14 @@
 {
     
     [super viewDidLoad];
-	self.title = conversation[PF_CONVERSATIONS_TITLE];
+    PFUser *user = [PFUser currentUser];
+
+    if ([conversation[PF_CONVERSATIONS_TITLE] isEqualToString:user[PF_USER_USERNAME]]) {
+        self.title = @"";
+    } else {
+        self.title = conversation[PF_CONVERSATIONS_TITLE];
+    }
+	
 	//---------------------------------------------------------------------------------------------------------------------------------------------
 	self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"button_back"]
 																	 style:UIBarButtonItemStylePlain target:self action:@selector(actionBack)];
@@ -118,7 +125,7 @@
 	NSTimeInterval duration = [[info valueForKey:UIKeyboardAnimationDurationUserInfoKey] doubleValue];
 	[UIView animateWithDuration:duration delay:0 options:UIViewAnimationOptionCurveEaseInOut animations:^{
 		heightKeyboard = frame.size.height;
-		viewInput.frame = CGRectMake(0, 449-frame.size.height, 320, 55);
+        viewInput.frame = CGRectMake(0, self.view.frame.size.height - heightKeyboard - 50, 320, 55);
 		self.tableView.frame = CGRectMake(0, 0, 320, 449-frame.size.height);
 		[self scrollToBottom];
 	} completion:nil];
@@ -133,7 +140,7 @@
 	
 	[UIView animateWithDuration:duration delay:0 options:UIViewAnimationOptionCurveEaseInOut animations:^{
 		heightKeyboard = 0;
-		viewInput.frame = CGRectMake(0, 449, 320, 55);
+		viewInput.frame = CGRectMake(0, self.view.frame.size.height - 50, 320, 55);
 		self.tableView.frame = CGRectMake(0, 0, 320, 449);
 	} completion:nil];
 }
@@ -190,7 +197,9 @@
 - (void)actionBlock
 //-------------------------------------------------------------------------------------------------------------------------------------------------
 {
-	NSString *message = [NSString stringWithFormat:@"No longer receive messages from %@?", conversation[PF_CONVERSATIONS_TITLE]];
+	//NSString *message = [NSString stringWithFormat:@"No longer receive messages from %@?", conversation[PF_CONVERSATIONS_TITLE]];
+    NSString *message = [NSString stringWithFormat:@"No longer receive messages from person?"];
+
 	UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:nil message:message delegate:self
 											  cancelButtonTitle:@"Cancel" otherButtonTitles:@"Yes", nil];
 	[alertView show];
@@ -336,7 +345,7 @@
 	CGFloat heightText = fmaxf(45, sizeText.height); heightText = fminf(MAX_HEIGHT_INPUT, heightText);
 	CGFloat heightView = heightText + 10;
 	//---------------------------------------------------------------------------------------------------------------------------------------------
-	viewInput.frame = CGRectMake(0, 504-heightKeyboard-heightView, 320, heightView);
+    viewInput.frame = CGRectMake(0, self.view.frame.size.height - heightKeyboard - heightView, 320, heightView);
 	viewBackground.frame = CGRectMake(0, 0, 240, heightView);
 	textInput.frame = CGRectMake(5, 5, widthText, heightText);
 	buttonSend.frame = CGRectMake(260, (heightView-29)/2, 40, 29);
