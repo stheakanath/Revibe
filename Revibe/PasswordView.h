@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface PasswordView : UIViewController
+@interface PasswordView : UIViewController <UITextFieldDelegate>
 
 @end

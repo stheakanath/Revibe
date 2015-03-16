@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface EmailView : UIViewController
+@interface EmailView : UIViewController <UITextFieldDelegate>
 
 @end
