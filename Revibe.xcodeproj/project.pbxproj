@@ -22,6 +22,9 @@
 		EB10526D1AB6734B006CEBBE /* Firebase.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EB1052691AB6734B006CEBBE /* Firebase.framework */; };
 		EB10526E1AB6734B006CEBBE /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EB10526A1AB6734B006CEBBE /* Parse.framework */; };
 		EB10526F1AB6734B006CEBBE /* ParseUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EB10526B1AB6734B006CEBBE /* ParseUI.framework */; };
+		EB1052731AB676AE006CEBBE /* LoginView.m in Sources */ = {isa = PBXBuildFile; fileRef = EB1052721AB676AE006CEBBE /* LoginView.m */; };
+		EB1052761AB676BA006CEBBE /* RegisterView.m in Sources */ = {isa = PBXBuildFile; fileRef = EB1052751AB676BA006CEBBE /* RegisterView.m */; };
+		EB1052791AB676DE006CEBBE /* WelcomeView.m in Sources */ = {isa = PBXBuildFile; fileRef = EB1052781AB676DE006CEBBE /* WelcomeView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -62,6 +65,12 @@
 		EB1052691AB6734B006CEBBE /* Firebase.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Firebase.framework; path = ../Frameworks/Firebase.framework; sourceTree = "<group>"; };
 		EB10526A1AB6734B006CEBBE /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Parse.framework; path = ../Frameworks/Parse.framework; sourceTree = "<group>"; };
 		EB10526B1AB6734B006CEBBE /* ParseUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ParseUI.framework; path = ../Frameworks/ParseUI.framework; sourceTree = "<group>"; };
+		EB1052711AB676AE006CEBBE /* LoginView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginView.h; sourceTree = "<group>"; };
+		EB1052721AB676AE006CEBBE /* LoginView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginView.m; sourceTree = "<group>"; };
+		EB1052741AB676BA006CEBBE /* RegisterView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegisterView.h; sourceTree = "<group>"; };
+		EB1052751AB676BA006CEBBE /* RegisterView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegisterView.m; sourceTree = "<group>"; };
+		EB1052771AB676DE006CEBBE /* WelcomeView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WelcomeView.h; sourceTree = "<group>"; };
+		EB1052781AB676DE006CEBBE /* WelcomeView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WelcomeView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -111,8 +120,9 @@
 				EB10522D1AB670B7006CEBBE /* AppDelegate.m */,
 				EB10522F1AB670B7006CEBBE /* ViewController.h */,
 				EB1052301AB670B7006CEBBE /* ViewController.m */,
+				EB1052701AB67670006CEBBE /* Welcome */,
 				EB1052631AB6724D006CEBBE /* Utilities */,
-				EB1052511AB67146006CEBBE /* Tabs */,
+				EB1052511AB67146006CEBBE /* Chat Tabs */,
 				EB1052351AB670B7006CEBBE /* Images.xcassets */,
 				EB1052281AB670B7006CEBBE /* Supporting Files */,
 			);
@@ -150,7 +160,7 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		EB1052511AB67146006CEBBE /* Tabs */ = {
+		EB1052511AB67146006CEBBE /* Chat Tabs */ = {
 			isa = PBXGroup;
 			children = (
 				EB1052601AB67239006CEBBE /* NavigationController.h */,
@@ -162,7 +172,7 @@
 				EB1052551AB6717A006CEBBE /* SettingsView.h */,
 				EB1052561AB6717A006CEBBE /* SettingsView.m */,
 			);
-			name = Tabs;
+			name = "Chat Tabs";
 			sourceTree = "<group>";
 		};
 		EB1052631AB6724D006CEBBE /* Utilities */ = {
@@ -173,6 +183,19 @@
 				EB1052651AB6725F006CEBBE /* utilities.m */,
 			);
 			name = Utilities;
+			sourceTree = "<group>";
+		};
+		EB1052701AB67670006CEBBE /* Welcome */ = {
+			isa = PBXGroup;
+			children = (
+				EB1052711AB676AE006CEBBE /* LoginView.h */,
+				EB1052721AB676AE006CEBBE /* LoginView.m */,
+				EB1052741AB676BA006CEBBE /* RegisterView.h */,
+				EB1052751AB676BA006CEBBE /* RegisterView.m */,
+				EB1052771AB676DE006CEBBE /* WelcomeView.h */,
+				EB1052781AB676DE006CEBBE /* WelcomeView.m */,
+			);
+			name = Welcome;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -278,11 +301,14 @@
 				EB1052311AB670B7006CEBBE /* ViewController.m in Sources */,
 				EB1052501AB6713F006CEBBE /* MainView.m in Sources */,
 				EB1052661AB6725F006CEBBE /* utilities.m in Sources */,
+				EB1052731AB676AE006CEBBE /* LoginView.m in Sources */,
+				EB1052791AB676DE006CEBBE /* WelcomeView.m in Sources */,
 				EB10522E1AB670B7006CEBBE /* AppDelegate.m in Sources */,
 				EB10522B1AB670B7006CEBBE /* main.m in Sources */,
 				EB1052541AB6716A006CEBBE /* ContactsView.m in Sources */,
 				EB1052571AB6717A006CEBBE /* SettingsView.m in Sources */,
 				EB1052621AB67239006CEBBE /* NavigationController.m in Sources */,
+				EB1052761AB676BA006CEBBE /* RegisterView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
