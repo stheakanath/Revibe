@@ -47,6 +47,16 @@
 		EB1052A81AB6A0D0006CEBBE /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = EB1052A71AB6A0D0006CEBBE /* libsqlite3.dylib */; };
 		EB1052B41AB6A683006CEBBE /* revibe_logo@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = EB1052B31AB6A683006CEBBE /* revibe_logo@2x.png */; };
 		EB1052B61AB6AE57006CEBBE /* button_back@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = EB1052B51AB6AE57006CEBBE /* button_back@2x.png */; };
+		EB1052B91AB6BBAD006CEBBE /* ContactsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = EB1052B81AB6BBAD006CEBBE /* ContactsCell.m */; };
+		EB1052C11AB6C185006CEBBE /* contacts_background.png in Resources */ = {isa = PBXBuildFile; fileRef = EB1052BC1AB6C185006CEBBE /* contacts_background.png */; };
+		EB1052C21AB6C185006CEBBE /* contacts_add@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = EB1052BD1AB6C185006CEBBE /* contacts_add@2x.png */; };
+		EB1052C31AB6C185006CEBBE /* contacts_heart@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = EB1052BE1AB6C185006CEBBE /* contacts_heart@2x.png */; };
+		EB1052C41AB6C185006CEBBE /* contacts_invite@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = EB1052BF1AB6C185006CEBBE /* contacts_invite@2x.png */; };
+		EB1052C51AB6C185006CEBBE /* contacts_registered@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = EB1052C01AB6C185006CEBBE /* contacts_registered@2x.png */; };
+		EB1052C91AB6C276006CEBBE /* ComposeView.m in Sources */ = {isa = PBXBuildFile; fileRef = EB1052C81AB6C276006CEBBE /* ComposeView.m */; };
+		EB1052CC1AB6C2F8006CEBBE /* RecipientsView.m in Sources */ = {isa = PBXBuildFile; fileRef = EB1052CB1AB6C2F8006CEBBE /* RecipientsView.m */; };
+		EBE4BBFC1AB6CFBE004C93AB /* tab2a@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = EBE4BBFA1AB6CFBE004C93AB /* tab2a@2x.png */; };
+		EBE4BBFD1AB6CFBE004C93AB /* tab2b@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = EBE4BBFB1AB6CFBE004C93AB /* tab2b@2x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -119,6 +129,19 @@
 		EB1052A71AB6A0D0006CEBBE /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
 		EB1052B31AB6A683006CEBBE /* revibe_logo@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "revibe_logo@2x.png"; sourceTree = "<group>"; };
 		EB1052B51AB6AE57006CEBBE /* button_back@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "button_back@2x.png"; sourceTree = "<group>"; };
+		EB1052B71AB6BBAD006CEBBE /* ContactsCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContactsCell.h; sourceTree = "<group>"; };
+		EB1052B81AB6BBAD006CEBBE /* ContactsCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContactsCell.m; sourceTree = "<group>"; };
+		EB1052BC1AB6C185006CEBBE /* contacts_background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = contacts_background.png; sourceTree = "<group>"; };
+		EB1052BD1AB6C185006CEBBE /* contacts_add@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "contacts_add@2x.png"; sourceTree = "<group>"; };
+		EB1052BE1AB6C185006CEBBE /* contacts_heart@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "contacts_heart@2x.png"; sourceTree = "<group>"; };
+		EB1052BF1AB6C185006CEBBE /* contacts_invite@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "contacts_invite@2x.png"; sourceTree = "<group>"; };
+		EB1052C01AB6C185006CEBBE /* contacts_registered@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "contacts_registered@2x.png"; sourceTree = "<group>"; };
+		EB1052C71AB6C276006CEBBE /* ComposeView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ComposeView.h; sourceTree = "<group>"; };
+		EB1052C81AB6C276006CEBBE /* ComposeView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ComposeView.m; sourceTree = "<group>"; };
+		EB1052CA1AB6C2F8006CEBBE /* RecipientsView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecipientsView.h; sourceTree = "<group>"; };
+		EB1052CB1AB6C2F8006CEBBE /* RecipientsView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecipientsView.m; sourceTree = "<group>"; };
+		EBE4BBFA1AB6CFBE004C93AB /* tab2a@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tab2a@2x.png"; sourceTree = "<group>"; };
+		EBE4BBFB1AB6CFBE004C93AB /* tab2b@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tab2b@2x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -181,10 +204,13 @@
 			children = (
 				EB10522C1AB670B7006CEBBE /* AppDelegate.h */,
 				EB10522D1AB670B7006CEBBE /* AppDelegate.m */,
-				EB1052A91AB6A28E006CEBBE /* Images to Sort */,
+				EB1052601AB67239006CEBBE /* NavigationController.h */,
+				EB1052611AB67239006CEBBE /* NavigationController.m */,
+				EB1052C61AB6C269006CEBBE /* Other shit to sort */,
+				EB1052BA1AB6BBB7006CEBBE /* Chat Tabs */,
 				EB1052701AB67670006CEBBE /* Welcome */,
 				EB1052631AB6724D006CEBBE /* Utilities */,
-				EB1052511AB67146006CEBBE /* Chat Tabs */,
+				EB1052A91AB6A28E006CEBBE /* Images to Sort */,
 				EB1052351AB670B7006CEBBE /* Images.xcassets */,
 				EB1052281AB670B7006CEBBE /* Supporting Files */,
 			);
@@ -240,21 +266,6 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		EB1052511AB67146006CEBBE /* Chat Tabs */ = {
-			isa = PBXGroup;
-			children = (
-				EB1052601AB67239006CEBBE /* NavigationController.h */,
-				EB1052611AB67239006CEBBE /* NavigationController.m */,
-				EB10524E1AB6713F006CEBBE /* MainView.h */,
-				EB10524F1AB6713F006CEBBE /* MainView.m */,
-				EB1052521AB6716A006CEBBE /* ContactsView.h */,
-				EB1052531AB6716A006CEBBE /* ContactsView.m */,
-				EB1052551AB6717A006CEBBE /* SettingsView.h */,
-				EB1052561AB6717A006CEBBE /* SettingsView.m */,
-			);
-			name = "Chat Tabs";
-			sourceTree = "<group>";
-		};
 		EB1052631AB6724D006CEBBE /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
@@ -289,10 +300,43 @@
 		EB1052A91AB6A28E006CEBBE /* Images to Sort */ = {
 			isa = PBXGroup;
 			children = (
+				EBE4BBFA1AB6CFBE004C93AB /* tab2a@2x.png */,
+				EBE4BBFB1AB6CFBE004C93AB /* tab2b@2x.png */,
+				EB1052BC1AB6C185006CEBBE /* contacts_background.png */,
+				EB1052BD1AB6C185006CEBBE /* contacts_add@2x.png */,
+				EB1052BE1AB6C185006CEBBE /* contacts_heart@2x.png */,
+				EB1052BF1AB6C185006CEBBE /* contacts_invite@2x.png */,
+				EB1052C01AB6C185006CEBBE /* contacts_registered@2x.png */,
 				EB1052B31AB6A683006CEBBE /* revibe_logo@2x.png */,
 				EB1052B51AB6AE57006CEBBE /* button_back@2x.png */,
 			);
 			name = "Images to Sort";
+			sourceTree = "<group>";
+		};
+		EB1052BA1AB6BBB7006CEBBE /* Chat Tabs */ = {
+			isa = PBXGroup;
+			children = (
+				EB1052B71AB6BBAD006CEBBE /* ContactsCell.h */,
+				EB1052B81AB6BBAD006CEBBE /* ContactsCell.m */,
+				EB1052521AB6716A006CEBBE /* ContactsView.h */,
+				EB1052531AB6716A006CEBBE /* ContactsView.m */,
+				EB10524E1AB6713F006CEBBE /* MainView.h */,
+				EB10524F1AB6713F006CEBBE /* MainView.m */,
+				EB1052551AB6717A006CEBBE /* SettingsView.h */,
+				EB1052561AB6717A006CEBBE /* SettingsView.m */,
+			);
+			name = "Chat Tabs";
+			sourceTree = "<group>";
+		};
+		EB1052C61AB6C269006CEBBE /* Other shit to sort */ = {
+			isa = PBXGroup;
+			children = (
+				EB1052C71AB6C276006CEBBE /* ComposeView.h */,
+				EB1052CA1AB6C2F8006CEBBE /* RecipientsView.h */,
+				EB1052CB1AB6C2F8006CEBBE /* RecipientsView.m */,
+				EB1052C81AB6C276006CEBBE /* ComposeView.m */,
+			);
+			name = "Other shit to sort";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -378,9 +422,16 @@
 			files = (
 				EB1052B41AB6A683006CEBBE /* revibe_logo@2x.png in Resources */,
 				EB1052341AB670B7006CEBBE /* Main.storyboard in Resources */,
+				EB1052C21AB6C185006CEBBE /* contacts_add@2x.png in Resources */,
+				EBE4BBFC1AB6CFBE004C93AB /* tab2a@2x.png in Resources */,
+				EB1052C11AB6C185006CEBBE /* contacts_background.png in Resources */,
+				EB1052C41AB6C185006CEBBE /* contacts_invite@2x.png in Resources */,
+				EB1052C31AB6C185006CEBBE /* contacts_heart@2x.png in Resources */,
+				EBE4BBFD1AB6CFBE004C93AB /* tab2b@2x.png in Resources */,
 				EB1052361AB670B7006CEBBE /* Images.xcassets in Resources */,
 				EB10527D1AB67835006CEBBE /* ProgressHUD.bundle in Resources */,
 				EB1052B61AB6AE57006CEBBE /* button_back@2x.png in Resources */,
+				EB1052C51AB6C185006CEBBE /* contacts_registered@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -406,13 +457,16 @@
 				EB10522E1AB670B7006CEBBE /* AppDelegate.m in Sources */,
 				EB10527E1AB67835006CEBBE /* ProgressHUD.m in Sources */,
 				EB1052871AB6786F006CEBBE /* validators.m in Sources */,
+				EB1052C91AB6C276006CEBBE /* ComposeView.m in Sources */,
 				EB10522B1AB670B7006CEBBE /* main.m in Sources */,
 				EB10528A1AB6A04E006CEBBE /* Reachability.m in Sources */,
-				EB1052541AB6716A006CEBBE /* ContactsView.m in Sources */,
+				EB1052CC1AB6C2F8006CEBBE /* RecipientsView.m in Sources */,
 				EB1052571AB6717A006CEBBE /* SettingsView.m in Sources */,
 				EB1052621AB67239006CEBBE /* NavigationController.m in Sources */,
 				EB1052761AB676BA006CEBBE /* RegisterView.m in Sources */,
 				EB1052831AB6786A006CEBBE /* conversations.m in Sources */,
+				EB1052B91AB6BBAD006CEBBE /* ContactsCell.m in Sources */,
+				EB1052541AB6716A006CEBBE /* ContactsView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
