@@ -1,13 +1,11 @@
 
-#import <UIKit/UIKit.h>
-#import "Reachability.h"
+#import <Parse/Parse.h>
 
 //-------------------------------------------------------------------------------------------------------------------------------------------------
-void			LoginUser					(id target);
-
-void			PostNotification			(NSString *notification);
-
-BOOL            connected                   ();
+void		ParsePushUserAssign		(void);
+void		ParsePushUserResign		(void);
 
 //-------------------------------------------------------------------------------------------------------------------------------------------------
-NSString*		TimeElapsed					(NSTimeInterval seconds);
+void		SendPushMessage			(PFObject *conversation, NSString *text);
+void		SendPushUnread			(PFObject *conversation);
+void		SendPushLiked			(PFObject *conversation);

@@ -8,6 +8,14 @@
 
 #import <UIKit/UIKit.h>
 
-@interface LoginView : UIViewController
+@protocol LoginDelegate
+
+- (void)didLoginSucessfully;
+
+@end
+
+@interface LoginView : UIViewController <UITextFieldDelegate, UIAlertViewDelegate>
+
+@property (nonatomic, assign) IBOutlet id <LoginDelegate> delegate;
 
 @end

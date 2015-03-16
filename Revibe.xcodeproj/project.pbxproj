@@ -25,6 +25,30 @@
 		EB1052731AB676AE006CEBBE /* LoginView.m in Sources */ = {isa = PBXBuildFile; fileRef = EB1052721AB676AE006CEBBE /* LoginView.m */; };
 		EB1052761AB676BA006CEBBE /* RegisterView.m in Sources */ = {isa = PBXBuildFile; fileRef = EB1052751AB676BA006CEBBE /* RegisterView.m */; };
 		EB1052791AB676DE006CEBBE /* WelcomeView.m in Sources */ = {isa = PBXBuildFile; fileRef = EB1052781AB676DE006CEBBE /* WelcomeView.m */; };
+		EB10527D1AB67835006CEBBE /* ProgressHUD.bundle in Resources */ = {isa = PBXBuildFile; fileRef = EB10527A1AB67835006CEBBE /* ProgressHUD.bundle */; };
+		EB10527E1AB67835006CEBBE /* ProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = EB10527C1AB67835006CEBBE /* ProgressHUD.m */; };
+		EB1052831AB6786A006CEBBE /* conversations.m in Sources */ = {isa = PBXBuildFile; fileRef = EB1052801AB6786A006CEBBE /* conversations.m */; };
+		EB1052841AB6786A006CEBBE /* pushnotification.m in Sources */ = {isa = PBXBuildFile; fileRef = EB1052821AB6786A006CEBBE /* pushnotification.m */; };
+		EB1052871AB6786F006CEBBE /* validators.m in Sources */ = {isa = PBXBuildFile; fileRef = EB1052861AB6786F006CEBBE /* validators.m */; };
+		EB10528A1AB6A04E006CEBBE /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = EB1052891AB6A04E006CEBBE /* Reachability.m */; };
+		EB10528C1AB6A077006CEBBE /* Accounts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EB10528B1AB6A077006CEBBE /* Accounts.framework */; };
+		EB10528E1AB6A07C006CEBBE /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EB10528D1AB6A07B006CEBBE /* Social.framework */; };
+		EB1052901AB6A084006CEBBE /* libicucore.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = EB10528F1AB6A084006CEBBE /* libicucore.dylib */; };
+		EB1052921AB6A092006CEBBE /* libc++.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = EB1052911AB6A091006CEBBE /* libc++.dylib */; };
+		EB1052941AB6A098006CEBBE /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EB1052931AB6A098006CEBBE /* AudioToolbox.framework */; };
+		EB1052961AB6A09C006CEBBE /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EB1052951AB6A09C006CEBBE /* CFNetwork.framework */; };
+		EB1052981AB6A0A1006CEBBE /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EB1052971AB6A0A1006CEBBE /* CoreGraphics.framework */; };
+		EB10529A1AB6A0A6006CEBBE /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EB1052991AB6A0A6006CEBBE /* CoreLocation.framework */; };
+		EB10529C1AB6A0AB006CEBBE /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EB10529B1AB6A0AB006CEBBE /* MobileCoreServices.framework */; };
+		EB10529E1AB6A0B0006CEBBE /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EB10529D1AB6A0B0006CEBBE /* QuartzCore.framework */; };
+		EB1052A01AB6A0B5006CEBBE /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EB10529F1AB6A0B5006CEBBE /* Security.framework */; };
+		EB1052A21AB6A0BA006CEBBE /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EB1052A11AB6A0BA006CEBBE /* StoreKit.framework */; };
+		EB1052A41AB6A0C0006CEBBE /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EB1052A31AB6A0C0006CEBBE /* SystemConfiguration.framework */; };
+		EB1052A61AB6A0C5006CEBBE /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = EB1052A51AB6A0C5006CEBBE /* libz.dylib */; };
+		EB1052A81AB6A0D0006CEBBE /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = EB1052A71AB6A0D0006CEBBE /* libsqlite3.dylib */; };
+		EB1052AE1AB6A2B1006CEBBE /* welcome_login@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = EB1052AB1AB6A2B1006CEBBE /* welcome_login@2x.png */; };
+		EB1052AF1AB6A2B1006CEBBE /* welcome_signup@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = EB1052AC1AB6A2B1006CEBBE /* welcome_signup@2x.png */; };
+		EB1052B41AB6A683006CEBBE /* revibe_logo@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = EB1052B31AB6A683006CEBBE /* revibe_logo@2x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -71,6 +95,35 @@
 		EB1052751AB676BA006CEBBE /* RegisterView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegisterView.m; sourceTree = "<group>"; };
 		EB1052771AB676DE006CEBBE /* WelcomeView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WelcomeView.h; sourceTree = "<group>"; };
 		EB1052781AB676DE006CEBBE /* WelcomeView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WelcomeView.m; sourceTree = "<group>"; };
+		EB10527A1AB67835006CEBBE /* ProgressHUD.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = ProgressHUD.bundle; sourceTree = "<group>"; };
+		EB10527B1AB67835006CEBBE /* ProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProgressHUD.h; sourceTree = "<group>"; };
+		EB10527C1AB67835006CEBBE /* ProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProgressHUD.m; sourceTree = "<group>"; };
+		EB10527F1AB6786A006CEBBE /* conversations.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = conversations.h; sourceTree = "<group>"; };
+		EB1052801AB6786A006CEBBE /* conversations.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = conversations.m; sourceTree = "<group>"; };
+		EB1052811AB6786A006CEBBE /* pushnotification.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = pushnotification.h; sourceTree = "<group>"; };
+		EB1052821AB6786A006CEBBE /* pushnotification.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = pushnotification.m; sourceTree = "<group>"; };
+		EB1052851AB6786F006CEBBE /* validators.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = validators.h; sourceTree = "<group>"; };
+		EB1052861AB6786F006CEBBE /* validators.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = validators.m; sourceTree = "<group>"; };
+		EB1052881AB6A04E006CEBBE /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
+		EB1052891AB6A04E006CEBBE /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
+		EB10528B1AB6A077006CEBBE /* Accounts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accounts.framework; path = System/Library/Frameworks/Accounts.framework; sourceTree = SDKROOT; };
+		EB10528D1AB6A07B006CEBBE /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
+		EB10528F1AB6A084006CEBBE /* libicucore.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libicucore.dylib; path = usr/lib/libicucore.dylib; sourceTree = SDKROOT; };
+		EB1052911AB6A091006CEBBE /* libc++.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libc++.dylib"; path = "usr/lib/libc++.dylib"; sourceTree = SDKROOT; };
+		EB1052931AB6A098006CEBBE /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		EB1052951AB6A09C006CEBBE /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
+		EB1052971AB6A0A1006CEBBE /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		EB1052991AB6A0A6006CEBBE /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		EB10529B1AB6A0AB006CEBBE /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
+		EB10529D1AB6A0B0006CEBBE /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		EB10529F1AB6A0B5006CEBBE /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		EB1052A11AB6A0BA006CEBBE /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
+		EB1052A31AB6A0C0006CEBBE /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		EB1052A51AB6A0C5006CEBBE /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
+		EB1052A71AB6A0D0006CEBBE /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
+		EB1052AB1AB6A2B1006CEBBE /* welcome_login@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "welcome_login@2x.png"; sourceTree = "<group>"; };
+		EB1052AC1AB6A2B1006CEBBE /* welcome_signup@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "welcome_signup@2x.png"; sourceTree = "<group>"; };
+		EB1052B31AB6A683006CEBBE /* revibe_logo@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "revibe_logo@2x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,6 +131,21 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EB1052A81AB6A0D0006CEBBE /* libsqlite3.dylib in Frameworks */,
+				EB1052A61AB6A0C5006CEBBE /* libz.dylib in Frameworks */,
+				EB1052A41AB6A0C0006CEBBE /* SystemConfiguration.framework in Frameworks */,
+				EB1052A21AB6A0BA006CEBBE /* StoreKit.framework in Frameworks */,
+				EB1052A01AB6A0B5006CEBBE /* Security.framework in Frameworks */,
+				EB10529E1AB6A0B0006CEBBE /* QuartzCore.framework in Frameworks */,
+				EB10529C1AB6A0AB006CEBBE /* MobileCoreServices.framework in Frameworks */,
+				EB10529A1AB6A0A6006CEBBE /* CoreLocation.framework in Frameworks */,
+				EB1052981AB6A0A1006CEBBE /* CoreGraphics.framework in Frameworks */,
+				EB1052961AB6A09C006CEBBE /* CFNetwork.framework in Frameworks */,
+				EB1052941AB6A098006CEBBE /* AudioToolbox.framework in Frameworks */,
+				EB1052921AB6A092006CEBBE /* libc++.dylib in Frameworks */,
+				EB1052901AB6A084006CEBBE /* libicucore.dylib in Frameworks */,
+				EB10528E1AB6A07C006CEBBE /* Social.framework in Frameworks */,
+				EB10528C1AB6A077006CEBBE /* Accounts.framework in Frameworks */,
 				EB10526C1AB6734B006CEBBE /* Bolts.framework in Frameworks */,
 				EB10526D1AB6734B006CEBBE /* Firebase.framework in Frameworks */,
 				EB10526E1AB6734B006CEBBE /* Parse.framework in Frameworks */,
@@ -120,6 +188,7 @@
 				EB10522D1AB670B7006CEBBE /* AppDelegate.m */,
 				EB10522F1AB670B7006CEBBE /* ViewController.h */,
 				EB1052301AB670B7006CEBBE /* ViewController.m */,
+				EB1052A91AB6A28E006CEBBE /* Images to Sort */,
 				EB1052701AB67670006CEBBE /* Welcome */,
 				EB1052631AB6724D006CEBBE /* Utilities */,
 				EB1052511AB67146006CEBBE /* Chat Tabs */,
@@ -132,6 +201,24 @@
 		EB1052281AB670B7006CEBBE /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				EB1052A71AB6A0D0006CEBBE /* libsqlite3.dylib */,
+				EB1052A51AB6A0C5006CEBBE /* libz.dylib */,
+				EB1052A31AB6A0C0006CEBBE /* SystemConfiguration.framework */,
+				EB1052A11AB6A0BA006CEBBE /* StoreKit.framework */,
+				EB10529F1AB6A0B5006CEBBE /* Security.framework */,
+				EB10529D1AB6A0B0006CEBBE /* QuartzCore.framework */,
+				EB10529B1AB6A0AB006CEBBE /* MobileCoreServices.framework */,
+				EB1052991AB6A0A6006CEBBE /* CoreLocation.framework */,
+				EB1052971AB6A0A1006CEBBE /* CoreGraphics.framework */,
+				EB1052951AB6A09C006CEBBE /* CFNetwork.framework */,
+				EB1052931AB6A098006CEBBE /* AudioToolbox.framework */,
+				EB1052911AB6A091006CEBBE /* libc++.dylib */,
+				EB10528F1AB6A084006CEBBE /* libicucore.dylib */,
+				EB10528D1AB6A07B006CEBBE /* Social.framework */,
+				EB10528B1AB6A077006CEBBE /* Accounts.framework */,
+				EB10527A1AB67835006CEBBE /* ProgressHUD.bundle */,
+				EB10527B1AB67835006CEBBE /* ProgressHUD.h */,
+				EB10527C1AB67835006CEBBE /* ProgressHUD.m */,
 				EB1052681AB6734B006CEBBE /* Bolts.framework */,
 				EB1052691AB6734B006CEBBE /* Firebase.framework */,
 				EB10526A1AB6734B006CEBBE /* Parse.framework */,
@@ -181,6 +268,14 @@
 				EB1052671AB67265006CEBBE /* AppConstant.h */,
 				EB1052641AB6725F006CEBBE /* utilities.h */,
 				EB1052651AB6725F006CEBBE /* utilities.m */,
+				EB10527F1AB6786A006CEBBE /* conversations.h */,
+				EB1052801AB6786A006CEBBE /* conversations.m */,
+				EB1052811AB6786A006CEBBE /* pushnotification.h */,
+				EB1052821AB6786A006CEBBE /* pushnotification.m */,
+				EB1052851AB6786F006CEBBE /* validators.h */,
+				EB1052861AB6786F006CEBBE /* validators.m */,
+				EB1052881AB6A04E006CEBBE /* Reachability.h */,
+				EB1052891AB6A04E006CEBBE /* Reachability.m */,
 			);
 			name = Utilities;
 			sourceTree = "<group>";
@@ -196,6 +291,16 @@
 				EB1052781AB676DE006CEBBE /* WelcomeView.m */,
 			);
 			name = Welcome;
+			sourceTree = "<group>";
+		};
+		EB1052A91AB6A28E006CEBBE /* Images to Sort */ = {
+			isa = PBXGroup;
+			children = (
+				EB1052B31AB6A683006CEBBE /* revibe_logo@2x.png */,
+				EB1052AB1AB6A2B1006CEBBE /* welcome_login@2x.png */,
+				EB1052AC1AB6A2B1006CEBBE /* welcome_signup@2x.png */,
+			);
+			name = "Images to Sort";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -279,8 +384,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EB1052B41AB6A683006CEBBE /* revibe_logo@2x.png in Resources */,
 				EB1052341AB670B7006CEBBE /* Main.storyboard in Resources */,
 				EB1052361AB670B7006CEBBE /* Images.xcassets in Resources */,
+				EB1052AF1AB6A2B1006CEBBE /* welcome_signup@2x.png in Resources */,
+				EB10527D1AB67835006CEBBE /* ProgressHUD.bundle in Resources */,
+				EB1052AE1AB6A2B1006CEBBE /* welcome_login@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -300,15 +409,20 @@
 			files = (
 				EB1052311AB670B7006CEBBE /* ViewController.m in Sources */,
 				EB1052501AB6713F006CEBBE /* MainView.m in Sources */,
+				EB1052841AB6786A006CEBBE /* pushnotification.m in Sources */,
 				EB1052661AB6725F006CEBBE /* utilities.m in Sources */,
 				EB1052731AB676AE006CEBBE /* LoginView.m in Sources */,
 				EB1052791AB676DE006CEBBE /* WelcomeView.m in Sources */,
 				EB10522E1AB670B7006CEBBE /* AppDelegate.m in Sources */,
+				EB10527E1AB67835006CEBBE /* ProgressHUD.m in Sources */,
+				EB1052871AB6786F006CEBBE /* validators.m in Sources */,
 				EB10522B1AB670B7006CEBBE /* main.m in Sources */,
+				EB10528A1AB6A04E006CEBBE /* Reachability.m in Sources */,
 				EB1052541AB6716A006CEBBE /* ContactsView.m in Sources */,
 				EB1052571AB6717A006CEBBE /* SettingsView.m in Sources */,
 				EB1052621AB67239006CEBBE /* NavigationController.m in Sources */,
 				EB1052761AB676BA006CEBBE /* RegisterView.m in Sources */,
+				EB1052831AB6786A006CEBBE /* conversations.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

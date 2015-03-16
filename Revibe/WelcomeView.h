@@ -7,7 +7,16 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "AppConstant.h"
+#import "LoginView.h"
+#import "RegisterView.h"
 
-@interface WelcomeView : UIViewController
+@interface WelcomeView : UIViewController<LoginDelegate, RegisterDelegate>
+
+@property (strong, nonatomic) UIImageView *signUpAnimation;
+@property (strong, nonatomic) UIImageView *loginAnimation;
+
+- (IBAction) loginClicked:(id)sender;
+- (IBAction) signUpClicked:(id)sender;
 
 @end

@@ -8,6 +8,14 @@
 
 #import <UIKit/UIKit.h>
 
-@interface RegisterView : UIViewController
+@protocol RegisterDelegate
+
+- (void)didRegisterSucessfully;
+
+@end
+
+@interface RegisterView : UIViewController <UITextFieldDelegate>
+
+@property (nonatomic, assign) IBOutlet id<RegisterDelegate>delegate;
 
 @end
