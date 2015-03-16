@@ -46,7 +46,7 @@
     [query whereKey:PF_CONVERSATIONS_BLOCKEDBY equalTo:user];
     [query orderByAscending:PF_CONVERSATIONS_TITLE];
     [query setLimit:1000];
-    [query findObjectsInBackgroundWtithBlock:^(NSArray *objects, NSError *error) {
+    [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
          if (error == nil) {
              [conversations removeAllObjects];
              [conversations addObjectsFromArray:objects];

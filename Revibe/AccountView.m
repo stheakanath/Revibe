@@ -6,95 +6,112 @@
 //  Copyright (c) 2015 Sony Theakanath. All rights reserved.
 //
 
+#import <Parse/Parse.h>
+#import "AppConstant.h"
 #import "AccountView.h"
+#import "EmailView.h"
+#import "PasswordView.h"
 
-@interface AccountView ()
+@interface AccountView()
+
+@property (strong, nonatomic) IBOutlet UIView *viewHeader;
+@property (strong, nonatomic) IBOutlet UILabel *labelUsername;
+@property (strong, nonatomic) IBOutlet UITableViewCell *cellEmail;
+@property (strong, nonatomic) IBOutlet UITableViewCell *cellPassword;
 
 @end
 
 @implementation AccountView
 
-- (void)viewDidLoad {
-    [super viewDidLoad];
+@synthesize viewHeader, labelUsername;
+@synthesize cellEmail, cellPassword;
+
+- (void) setUpCells {
+    //viewHeader
+    self.viewHeader = [[UIView alloc] initWithFrame:CGRectMake(0, 0, [[UIScreen mainScreen] bounds].size.width, 57)];
+    UILabel *usernamelabel = [[UILabel alloc] initWithFrame:CGRectMake(15, 18, 80, 21)];
+    usernamelabel.text = @"Username";
+    [usernamelabel setFont:[UIFont fontWithName:@"Avenir Medium" size:17]];
+    [self.viewHeader addSubview:usernamelabel];
+    self.labelUsername = [[UILabel alloc] initWithFrame:CGRectMake([[UIScreen mainScreen] bounds].size.width-215, 18, 200, 21)];
+    [self.labelUsername setFont:[UIFont fontWithName:@"Avenir Medium" size:17]];
+    [self.labelUsername setTextAlignment:NSTextAlignmentRight];
+    [self.viewHeader addSubview:self.labelUsername];
     
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
+    //cellPassword
+    self.cellPassword = [[UITableViewCell alloc] init];
+    UILabel *anyone = [[UILabel alloc] initWithFrame:CGRectMake(15, 17, 114, 24)];
+    anyone.text = @"New Password";
+    [anyone setFont:[UIFont fontWithName:@"Avenir Medium" size:17]];
+    [self.cellPassword.contentView addSubview:anyone];
+    UILabel *anyone1 = [[UILabel alloc] initWithFrame:CGRectMake([[UIScreen mainScreen] bounds].size.width-135, 17, 94, 24)];
+    anyone1.text = @"************";
+    anyone1.textAlignment = NSTextAlignmentRight;
+    [anyone1 setFont:[UIFont fontWithName:@"Avenir Medium" size:17]];
+    [self.cellPassword.contentView addSubview:anyone1];
     
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    //cellEmail
+    self.cellEmail = [[UITableViewCell alloc] init];
+    self.cellEmail.textLabel.font =[UIFont fontWithName:@"Avenir Medium" size:17];
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    self.title = @"Account Settings";
+    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"button_back"] style:UIBarButtonItemStylePlain target:self action:@selector(actionBack)];
+    self.tableView.tableFooterView = [[UIView alloc] init];
+    [self setUpCells];
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    self.tableView.tableHeaderView = viewHeader;
+    PFUser *user = [PFUser currentUser];
+    labelUsername.text = user[PF_USER_USERNAME];
+    cellEmail.textLabel.text = user[PF_USER_EMAIL];
+}
+
+#pragma mark - User actions
+
+- (void)actionBack {
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-#warning Potentially incomplete method implementation.
-    // Return the number of sections.
-    return 0;
+    return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-#warning Incomplete method implementation.
-    // Return the number of rows in the section.
-    return 0;
+    return 2;
 }
 
-/*
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath; {
+    return 57;
+}
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:<#@"reuseIdentifier"#> forIndexPath:indexPath];
-    
-    // Configure the cell...
-    
+    UITableViewCell *cell;
+    if (indexPath.row == 0) cell = cellEmail;
+    if (indexPath.row == 1) cell = cellPassword;
+    cell.layoutMargins = UIEdgeInsetsZero;
+    cell.preservesSuperviewLayoutMargins = NO;
+    cell.accessoryView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"account_arrow"]];
     return cell;
 }
-*/
 
-/*
-// Override to support conditional editing of the table view.
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the specified item to be editable.
-    return YES;
+#pragma mark - Table view delegate
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    if (indexPath.row == 0) {
+        EmailView *emailView = [[EmailView alloc] init];
+        [self.navigationController pushViewController:emailView animated:YES];
+    } else if (indexPath.row == 1) {
+        PasswordView *passwordView = [[PasswordView alloc] init];
+        [self.navigationController pushViewController:passwordView animated:YES];
+    }
 }
-*/
-
-/*
-// Override to support editing the table view.
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    } else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
-}
-*/
-
-/*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath {
-}
-*/
-
-/*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
-}
-*/
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

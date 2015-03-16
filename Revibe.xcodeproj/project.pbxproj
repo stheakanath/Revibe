@@ -74,6 +74,7 @@
 		EBEAA5D81AB78229005DB78B /* settings_on@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = EBEAA5D31AB78229005DB78B /* settings_on@2x.png */; };
 		EBEAA5DB1AB78B6A005DB78B /* blocked_background.png in Resources */ = {isa = PBXBuildFile; fileRef = EBEAA5D91AB78B6A005DB78B /* blocked_background.png */; };
 		EBEAA5DC1AB78B6A005DB78B /* blocked_unblock@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = EBEAA5DA1AB78B6A005DB78B /* blocked_unblock@2x.png */; };
+		EBEAA5DE1AB78EF1005DB78B /* account_arrow@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = EBEAA5DD1AB78EF1005DB78B /* account_arrow@2x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -182,6 +183,7 @@
 		EBEAA5D31AB78229005DB78B /* settings_on@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "settings_on@2x.png"; sourceTree = "<group>"; };
 		EBEAA5D91AB78B6A005DB78B /* blocked_background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = blocked_background.png; sourceTree = "<group>"; };
 		EBEAA5DA1AB78B6A005DB78B /* blocked_unblock@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "blocked_unblock@2x.png"; sourceTree = "<group>"; };
+		EBEAA5DD1AB78EF1005DB78B /* account_arrow@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "account_arrow@2x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -340,6 +342,7 @@
 		EB1052A91AB6A28E006CEBBE /* Images to Sort */ = {
 			isa = PBXGroup;
 			children = (
+				EBEAA5DD1AB78EF1005DB78B /* account_arrow@2x.png */,
 				EBEAA5D91AB78B6A005DB78B /* blocked_background.png */,
 				EBEAA5DA1AB78B6A005DB78B /* blocked_unblock@2x.png */,
 				EBEAA5CF1AB78229005DB78B /* settings_arrow@2x.png */,
@@ -507,6 +510,7 @@
 				EB1052C31AB6C185006CEBBE /* contacts_heart@2x.png in Resources */,
 				EBEAA5B71AB77120005DB78B /* tab1a@2x.png in Resources */,
 				EBE4BBFD1AB6CFBE004C93AB /* tab2b@2x.png in Resources */,
+				EBEAA5DE1AB78EF1005DB78B /* account_arrow@2x.png in Resources */,
 				EBEAA5B81AB77120005DB78B /* tab1b@2x.png in Resources */,
 				EBEAA5D51AB78229005DB78B /* settings_heart@2x.png in Resources */,
 				EB1052361AB670B7006CEBBE /* Images.xcassets in Resources */,
