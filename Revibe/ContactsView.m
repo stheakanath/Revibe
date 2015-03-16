@@ -15,7 +15,7 @@
 #import "ComposeView.h"
 #import "NavigationController.h"
 
-@interface ContactsView() {
+@interface ContactsView() { 
     NSMutableArray *userFriends, *addressContacts;
     BOOL friendsLoaded, contactsLoaded;
     NSIndexPath *indexSelected;
