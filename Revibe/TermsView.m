@@ -8,30 +8,29 @@
 
 #import "TermsView.h"
 
-@interface TermsView ()
+@interface TermsView()
+
+@property (strong, nonatomic) IBOutlet UIWebView *webView;
 
 @end
 
 @implementation TermsView
 
+@synthesize webView;
+
 - (void)viewDidLoad {
+    self.webView = [[UIWebView alloc] initWithFrame:CGRectMake(0, 0, [[UIScreen mainScreen] bounds].size.width, [[UIScreen mainScreen] bounds].size.height - 64)];
+    [self.view addSubview:self.webView];
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    self.title = @"Terms of Service";
+    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"button_back"] style:UIBarButtonItemStylePlain target:self action:@selector(actionBack)];
+    [webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:@"http://revibeapp.com/termsprivacy.html"]]];
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
+#pragma mark - User actions
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+- (void)actionBack {
+    [self.navigationController popViewControllerAnimated:YES];
 }
-*/
 
 @end
