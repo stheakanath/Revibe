@@ -31,11 +31,19 @@
 
 @synthesize viewHeader, fieldUsername;
 
+- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
+    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
+    if (self) {
+        [self.tabBarItem setImage:[[UIImage imageNamed:@"tab2a"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal]];
+        [self.tabBarItem setSelectedImage:[[UIImage imageNamed:@"tab2b"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal]];
+        self.tabBarItem.imageInsets = UIEdgeInsetsMake(6, 0, -6, 0);
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(actionCleanup) name:NOTIFICATION_USER_LOGGED_OUT object:nil];
+    }
+    return self;
+}
+
+
 - (void) setUpInterface {
-    [self.tabBarItem setImage:[[UIImage imageNamed:@"tab2a"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal]];
-    [self.tabBarItem setSelectedImage:[[UIImage imageNamed:@"tab2b"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal]];
-    self.tabBarItem.imageInsets = UIEdgeInsetsMake(6, 0, -6, 0);
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(actionCleanup) name:NOTIFICATION_USER_LOGGED_OUT object:nil];
     self.viewHeader = [[UIView alloc] initWithFrame:CGRectMake(0, 0, [[UIScreen mainScreen] bounds].size.width, 54)];
     [self.viewHeader setBackgroundColor:[UIColor whiteColor]];
     self.fieldUsername = [[UITextField alloc] initWithFrame:CGRectMake(15, 0, 250, 54)];

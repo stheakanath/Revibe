@@ -47,6 +47,17 @@
 @synthesize cellRandom, cellNotification, cellBlocked, cellAccount, cellSupport, cellTerms;
 @synthesize imageRandom, imageNotification;
 
+- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
+    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
+    if (self)
+    {
+        [self.tabBarItem setImage:[[UIImage imageNamed:@"tab3a"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal]];
+        [self.tabBarItem setSelectedImage:[[UIImage imageNamed:@"tab3b"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal]];
+        self.tabBarItem.imageInsets = UIEdgeInsetsMake(6, 0, -6, 0);
+    }
+    return self;
+}
+
 - (void) setUpCells {
     //viewHeader
     self.viewHeader = [[UIView alloc] initWithFrame:CGRectMake(0, 0, [[UIScreen mainScreen] bounds].size.width, 90)];
@@ -139,11 +150,6 @@
             _settingsHeart.transform = CGAffineTransformMakeScale(2.5f, 2.5f);
             _settingsHeart.transform = CGAffineTransformMakeScale(1.0f, 1.0f);
         } completion:^(BOOL finished) {}];
-    }
-    if (self) {
-        [self.tabBarItem setImage:[[UIImage imageNamed:@"tab3a"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal]];
-        [self.tabBarItem setSelectedImage:[[UIImage imageNamed:@"tab3b"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal]];
-        self.tabBarItem.imageInsets = UIEdgeInsetsMake(6, 0, -6, 0);
     }
     self.tableView.tableHeaderView = viewHeader;
     [super viewDidAppear:animated];
