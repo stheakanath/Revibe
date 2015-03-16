@@ -26,7 +26,7 @@
     self.loginAnimation = [[UIImageView alloc] initWithFrame:CGRectMake(-[[UIScreen mainScreen] bounds].size.width, [[UIScreen mainScreen] bounds].size.height - 300, [[UIScreen mainScreen] bounds].size.width, 100)];
     [self.loginAnimation setBackgroundColor:GREEN_COLOR];
     [self.view addSubview:self.loginAnimation];
-    self.signUpAnimation = [[UIImageView alloc] initWithFrame:CGRectMake([[UIScreen mainScreen] bounds].size.widthgit , [[UIScreen mainScreen] bounds].size.height - 175, [[UIScreen mainScreen] bounds].size.width, 100)];
+    self.signUpAnimation = [[UIImageView alloc] initWithFrame:CGRectMake([[UIScreen mainScreen] bounds].size.width, [[UIScreen mainScreen] bounds].size.height - 175, [[UIScreen mainScreen] bounds].size.width, 100)];
     [self.signUpAnimation setBackgroundColor:BLUE_COLOR];
     [self.view addSubview:self.signUpAnimation];
     [self.signUpAnimation setAlpha:1];
@@ -47,7 +47,7 @@
 
 - (void) viewDidAppear:(BOOL)animated {
     CGRect signUpFrame = _signUpAnimation.frame;
-    signUpFrame.origin.x = -320;
+    signUpFrame.origin.x = -[[UIScreen mainScreen] bounds].size.width;
     _signUpAnimation.frame = signUpFrame;
     _signUpAnimation.hidden = NO;
     
@@ -58,7 +58,7 @@
     } completion:nil];
     
     CGRect LoginFrame = _loginAnimation.frame;
-    LoginFrame.origin.x = 320;
+    LoginFrame.origin.x = [[UIScreen mainScreen] bounds].size.width;
     _loginAnimation.frame = LoginFrame;
     _loginAnimation.hidden = NO;
     
@@ -111,7 +111,7 @@
     _loginAnimation.hidden = NO;
     [UIView animateWithDuration:0.35 delay:0 options:UIViewAnimationOptionCurveEaseInOut animations:^{
         CGRect frame = _loginAnimation.frame;
-        frame.origin.x = -320;
+        frame.origin.x = -[[UIScreen mainScreen] bounds].size.width;
         _loginAnimation.frame = frame;
     } completion:nil];
     
@@ -121,7 +121,7 @@
     _signUpAnimation.hidden = NO;
     [UIView animateWithDuration:0.35 delay:0 options:UIViewAnimationOptionCurveEaseInOut animations:^{
         CGRect frame = _signUpAnimation.frame;
-        frame.origin.x = 320;
+        frame.origin.x = [[UIScreen mainScreen] bounds].size.width;
         _signUpAnimation.frame = frame;
     } completion:nil];
 }
