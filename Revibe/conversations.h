@@ -1,7 +1,6 @@
 
 #import <Parse/Parse.h>
 
-//-------------------------------------------------------------------------------------------------------------------------------------------------
 void		CreateConversations				(NSMutableArray *recipients, NSString *message);
 void		CreateConversation				(PFUser *user, NSString *message);
 void		CreateFirebaseItem				(PFObject *conversation, NSString *text);
