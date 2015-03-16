@@ -15,9 +15,9 @@
 #import "ComposeView.h"
 #import "NavigationController.h"
 
-@interface ContactsView() { 
-    NSMutableArray *userFriends, *addressContacts;
-    BOOL friendsLoaded, contactsLoaded;
+@interface ContactsView() {
+    NSMutableArray *userFriends, *addressContacts, *randomUsers;
+    BOOL friendsLoaded, contactsLoaded, randomLoaded;
     NSIndexPath *indexSelected;
 }
 
@@ -31,13 +31,22 @@
 
 @synthesize viewHeader, fieldUsername;
 
-
 - (void) setUpInterface {
     [self.tabBarItem setImage:[[UIImage imageNamed:@"tab2a"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal]];
     [self.tabBarItem setSelectedImage:[[UIImage imageNamed:@"tab2b"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal]];
     self.tabBarItem.imageInsets = UIEdgeInsetsMake(6, 0, -6, 0);
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(actionCleanup) name:NOTIFICATION_USER_LOGGED_OUT object:nil];
-
+    self.viewHeader = [[UIView alloc] initWithFrame:CGRectMake(0, 0, [[UIScreen mainScreen] bounds].size.width, 54)];
+    [self.viewHeader setBackgroundColor:[UIColor whiteColor]];
+    self.fieldUsername = [[UITextField alloc] initWithFrame:CGRectMake(15, 0, 250, 54)];
+    [self.fieldUsername setPlaceholder:@"Type username and add..."];
+    [self.fieldUsername setFont:[UIFont fontWithName:@"Avenir Medium" size:17]];
+    [self.viewHeader addSubview:self.fieldUsername];
+    UIButton *add = [UIButton buttonWithType:UIButtonTypeCustom];
+    [add setBackgroundImage:[UIImage imageNamed:@"contacts_add"] forState:UIControlStateNormal];
+    [add setFrame:CGRectMake([[UIScreen mainScreen] bounds].size.width - 35, 15, 20, 20)];
+    [add addTarget:self action:@selector(actionAdd:) forControlEvents:UIControlEventTouchUpInside];
+    [self.viewHeader addSubview:add];
 }
 
 - (void) viewDidLoad {
@@ -45,11 +54,12 @@
     self.title = @"Contacts";
     self.tabBarItem.title = nil;
     self.tableView.delegate = self;
-    self.tableView.tableHeaderView = viewHeader;
     self.tableView.tableFooterView = [[UIView alloc] init];
     self.tableView.allowsMultipleSelectionDuringEditing = NO;
     userFriends = [[NSMutableArray alloc] init];
     addressContacts = [[NSMutableArray alloc] init];
+    randomUsers = [[NSMutableArray alloc] init];
+    [self setUpInterface];
 }
 
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -90,8 +100,10 @@
     [contactsViewBackground setFrame:self.tableView.frame];
     self.tableView.backgroundView = contactsViewBackground;
     contactsViewBackground.alpha = 1.0f;
+    self.tableView.tableHeaderView = viewHeader;
     [super viewDidAppear:animated];
     if ([PFUser currentUser] != nil) {
+        [self loadRandomUser];
         [self loadFriends];
         ABAddressBookRef addressBook = ABAddressBookCreateWithOptions(NULL, nil);
         ABAddressBookRequestAccessWithCompletion(addressBook, ^(bool granted, CFErrorRef error) {
@@ -166,8 +178,42 @@
     }
 }
 
+- (void)loadRandomUser {
+    randomLoaded = NO;
+    PFUser *user = [PFUser currentUser];
+    if ([user[PF_USER_RANDOM] boolValue] == NO) { [randomUsers removeAllObjects]; randomLoaded = YES; return; }
+    PFQuery *query = [PFQuery queryWithClassName:PF_INDEX_CLASS_NAME];
+    [query getFirstObjectInBackgroundWithBlock:^(PFObject *object, NSError *error) {
+         if (error == nil) {
+             NSMutableArray *randoms = [[NSMutableArray alloc] init];
+             for (int i = 0; i < USER_RANDOM_QUERY; i++) {
+                 int random = 0;
+                 while ((random == 0) || (random == [user[PF_USER_INDEX] intValue])) random = arc4random() % [object[PF_INDEX_LAST] intValue];
+                 [randoms addObject:[NSNumber numberWithInt:random]];
+             }
+             PFQuery *query = [PFQuery queryWithClassName:PF_USER_CLASS_NAME];
+             [query whereKey:PF_USER_RANDOM equalTo:@YES];
+             [query whereKey:PF_USER_INDEX containedIn:randoms];
+             [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+                  if (error == nil) {
+                      [randomUsers removeAllObjects];
+                      for (NSNumber *random in randoms)
+                          for (PFUser *user in objects)
+                              if ([random intValue] == [user[PF_USER_INDEX] intValue]) {
+                                  [randomUsers addObject:user];
+                                  goto endLoop;
+                              }
+                      endLoop:
+                      randomLoaded = YES;
+                      [self reloadTableIfReady];
+                  } else [ProgressHUD showError:error.userInfo[@"error"]];
+              }]; } else [ProgressHUD showError:error.userInfo[@"error"]];
+     }];
+}
+
+
 - (void)reloadTableIfReady {
-   if (friendsLoaded && contactsLoaded)
+   if (randomLoaded && friendsLoaded && contactsLoaded)
         [self.tableView reloadData];
 }
 
@@ -252,7 +298,7 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    if (section == 0) return 0; //Anyone on Revibe
+    if (section == 0) return [randomUsers count]; //Anyone on Revibe
     if (section == 1) return [userFriends count]; //Friends on Revibe
     if (section == 2) return [addressContacts count]; //Contact Book
     return 0;
@@ -261,7 +307,7 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     if ((indexPath.section == 0) || (indexPath.section == 1)) {
         PFUser *user; NSString *name;
-        if (indexPath.section == 0) { user = userFriends[indexPath.row]; name = @"Anyone on Revibe"; }
+        if (indexPath.section == 0) { user = randomUsers[indexPath.row]; name = @"Anyone on Revibe"; }
         if (indexPath.section == 1) { user = userFriends[indexPath.row]; name = nil; }
         ContactsCell *cell = (ContactsCell *)[tableView dequeueReusableCellWithIdentifier:@"Cell"];
         if (cell == nil){
@@ -291,7 +337,10 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     NSLog(@"%li %li", (long)indexPath.row, (long)indexPath.section);
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
-    if ((indexPath.section == 0) || (indexPath.section == 1)) {
+    if (indexPath.section == 0 && indexPath.row == 0) {
+        ContactsCell *cell = (ContactsCell *) [tableView cellForRowAtIndexPath:indexPath];
+        [cell actionSend:self];
+    } else if ((indexPath.section == 0) || (indexPath.section == 1)) {
         ContactsCell *cell = (ContactsCell *) [tableView cellForRowAtIndexPath:indexPath];
         [cell showLikes];
         [self performSelector:@selector(delayedHideLikes:) withObject:cell afterDelay:DELAY_LIKED_USER];

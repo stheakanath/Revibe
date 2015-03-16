@@ -21,8 +21,8 @@
 @property (strong, nonatomic) UIButton *buttonSend;
 
 - (void)bindData:(PFUser *)user_ Name:(NSString *)name Likes:(BOOL)likes ContactsView:(ContactsView *)contactsView_;
-
 - (void)showLikes;
 - (void)hideLikes;
+- (IBAction)actionSend:(id)sender;
 
 @end

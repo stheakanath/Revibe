@@ -3,6 +3,7 @@
 #define HEXCOLOR(c) [UIColor colorWithRed:((c>>24)&0xFF)/255.0 green:((c>>16)&0xFF)/255.0 blue:((c>>8)&0xFF)/255.0 alpha:((c)&0xFF)/255.0]
 #define GREEN_COLOR [UIColor colorWithRed:199/255.0 green:224/255.0 blue:162/255.0 alpha:1]
 #define BLUE_COLOR [UIColor colorWithRed:91/255.0 green:202/255.0 blue:234/255.0 alpha:1]
+#define HEART_COLOR [UIColor colorWithRed:242/255.0 green:120/255.0 blue:122/255.0 alpha:1]
 
 //-------------------------------------------------------------------------------------------------------------------------------------------------
 #define		DEFAULT_TAB							0

@@ -196,34 +196,8 @@
     user[PF_USER_NOTIFICATION] = @YES;
     user[PF_USER_LIKES] = @0;
     [user signUpInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
-         if (error == nil)
-             //DELETE WHEN COMPLETE
-             [self createUser2:user];
-         else [ProgressHUD showError:error.userInfo[@"error"]];
-     }];
-}
-
-/********************************************************************************************************************************************************
- TEMPORARY DELETE WHEN IMPLEMENTED!!!!! ldsk;jfas;ldkfjs;dfjslakfak;sdk;fdask;fdaskl;adfskl;adks;dfl;afkl;kl;afdskl;dfaskl;fads;kl
- ***********************************************************************************************************************************/
-- (void)createUser2:(PFUser *)user {
-    PFObject *object = [PFObject objectWithClassName:PF_USER2_CLASS_NAME];
-    object[PF_USER2_USER] = user;
-    object[PF_USER2_EMAIL] = user.email;
-    object[PF_USER2_LIKES] = @0;
-    [object saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error)
-     {
-         if (error == nil)
-         {
-             ParsePushUserAssign();
-             PostNotification(NOTIFICATION_USER_LOGGED_IN);
-             [ProgressHUD showSuccess:@"Registration was successful."];
-             [self dismissViewControllerAnimated:YES completion:^{ if (delegate != nil) [delegate didRegisterSucessfully]; }];
-         } else {
+         if (error != nil)
              [ProgressHUD showError:error.userInfo[@"error"]];
-             [[PFUser currentUser] deleteInBackground];
-             [PFUser logOut];
-         }
      }];
 }
 

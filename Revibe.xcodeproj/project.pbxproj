@@ -206,7 +206,7 @@
 				EB10522D1AB670B7006CEBBE /* AppDelegate.m */,
 				EB1052601AB67239006CEBBE /* NavigationController.h */,
 				EB1052611AB67239006CEBBE /* NavigationController.m */,
-				EB1052C61AB6C269006CEBBE /* Other shit to sort */,
+				EB1052C61AB6C269006CEBBE /*  These are useless classes, please ignore */,
 				EB1052BA1AB6BBB7006CEBBE /* Chat Tabs */,
 				EB1052701AB67670006CEBBE /* Welcome */,
 				EB1052631AB6724D006CEBBE /* Utilities */,
@@ -320,23 +320,23 @@
 				EB1052B81AB6BBAD006CEBBE /* ContactsCell.m */,
 				EB1052521AB6716A006CEBBE /* ContactsView.h */,
 				EB1052531AB6716A006CEBBE /* ContactsView.m */,
-				EB10524E1AB6713F006CEBBE /* MainView.h */,
-				EB10524F1AB6713F006CEBBE /* MainView.m */,
-				EB1052551AB6717A006CEBBE /* SettingsView.h */,
-				EB1052561AB6717A006CEBBE /* SettingsView.m */,
 			);
 			name = "Chat Tabs";
 			sourceTree = "<group>";
 		};
-		EB1052C61AB6C269006CEBBE /* Other shit to sort */ = {
+		EB1052C61AB6C269006CEBBE /*  These are useless classes, please ignore */ = {
 			isa = PBXGroup;
 			children = (
 				EB1052C71AB6C276006CEBBE /* ComposeView.h */,
 				EB1052CA1AB6C2F8006CEBBE /* RecipientsView.h */,
+				EB10524E1AB6713F006CEBBE /* MainView.h */,
+				EB10524F1AB6713F006CEBBE /* MainView.m */,
+				EB1052551AB6717A006CEBBE /* SettingsView.h */,
+				EB1052561AB6717A006CEBBE /* SettingsView.m */,
 				EB1052CB1AB6C2F8006CEBBE /* RecipientsView.m */,
 				EB1052C81AB6C276006CEBBE /* ComposeView.m */,
 			);
-			name = "Other shit to sort";
+			name = " These are useless classes, please ignore";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
