@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		EB10522B1AB670B7006CEBBE /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = EB10522A1AB670B7006CEBBE /* main.m */; };
 		EB10522E1AB670B7006CEBBE /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = EB10522D1AB670B7006CEBBE /* AppDelegate.m */; };
-		EB1052311AB670B7006CEBBE /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EB1052301AB670B7006CEBBE /* ViewController.m */; };
 		EB1052341AB670B7006CEBBE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EB1052321AB670B7006CEBBE /* Main.storyboard */; };
 		EB1052361AB670B7006CEBBE /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EB1052351AB670B7006CEBBE /* Images.xcassets */; };
 		EB1052451AB670B7006CEBBE /* RevibeTests.m in Sources */ = {isa = PBXBuildFile; fileRef = EB1052441AB670B7006CEBBE /* RevibeTests.m */; };
@@ -66,8 +65,6 @@
 		EB10522A1AB670B7006CEBBE /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		EB10522C1AB670B7006CEBBE /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		EB10522D1AB670B7006CEBBE /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		EB10522F1AB670B7006CEBBE /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		EB1052301AB670B7006CEBBE /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		EB1052331AB670B7006CEBBE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		EB1052351AB670B7006CEBBE /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		EB10523E1AB670B7006CEBBE /* RevibeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RevibeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -184,8 +181,6 @@
 			children = (
 				EB10522C1AB670B7006CEBBE /* AppDelegate.h */,
 				EB10522D1AB670B7006CEBBE /* AppDelegate.m */,
-				EB10522F1AB670B7006CEBBE /* ViewController.h */,
-				EB1052301AB670B7006CEBBE /* ViewController.m */,
 				EB1052A91AB6A28E006CEBBE /* Images to Sort */,
 				EB1052701AB67670006CEBBE /* Welcome */,
 				EB1052631AB6724D006CEBBE /* Utilities */,
@@ -403,7 +398,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EB1052311AB670B7006CEBBE /* ViewController.m in Sources */,
 				EB1052501AB6713F006CEBBE /* MainView.m in Sources */,
 				EB1052841AB6786A006CEBBE /* pushnotification.m in Sources */,
 				EB1052661AB6725F006CEBBE /* utilities.m in Sources */,
