@@ -7,6 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <Parse/Parse.h>
+#import "ProgressHUD.h"
+#import "AppConstant.h"
+#import "pushnotification.h"
+#import "utilities.h"
+#import "validators.h"
 
 @protocol RegisterDelegate
 

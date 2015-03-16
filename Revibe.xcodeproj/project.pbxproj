@@ -46,9 +46,8 @@
 		EB1052A41AB6A0C0006CEBBE /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EB1052A31AB6A0C0006CEBBE /* SystemConfiguration.framework */; };
 		EB1052A61AB6A0C5006CEBBE /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = EB1052A51AB6A0C5006CEBBE /* libz.dylib */; };
 		EB1052A81AB6A0D0006CEBBE /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = EB1052A71AB6A0D0006CEBBE /* libsqlite3.dylib */; };
-		EB1052AE1AB6A2B1006CEBBE /* welcome_login@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = EB1052AB1AB6A2B1006CEBBE /* welcome_login@2x.png */; };
-		EB1052AF1AB6A2B1006CEBBE /* welcome_signup@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = EB1052AC1AB6A2B1006CEBBE /* welcome_signup@2x.png */; };
 		EB1052B41AB6A683006CEBBE /* revibe_logo@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = EB1052B31AB6A683006CEBBE /* revibe_logo@2x.png */; };
+		EB1052B61AB6AE57006CEBBE /* button_back@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = EB1052B51AB6AE57006CEBBE /* button_back@2x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -121,9 +120,8 @@
 		EB1052A31AB6A0C0006CEBBE /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		EB1052A51AB6A0C5006CEBBE /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		EB1052A71AB6A0D0006CEBBE /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
-		EB1052AB1AB6A2B1006CEBBE /* welcome_login@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "welcome_login@2x.png"; sourceTree = "<group>"; };
-		EB1052AC1AB6A2B1006CEBBE /* welcome_signup@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "welcome_signup@2x.png"; sourceTree = "<group>"; };
 		EB1052B31AB6A683006CEBBE /* revibe_logo@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "revibe_logo@2x.png"; sourceTree = "<group>"; };
+		EB1052B51AB6AE57006CEBBE /* button_back@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "button_back@2x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -297,8 +295,7 @@
 			isa = PBXGroup;
 			children = (
 				EB1052B31AB6A683006CEBBE /* revibe_logo@2x.png */,
-				EB1052AB1AB6A2B1006CEBBE /* welcome_login@2x.png */,
-				EB1052AC1AB6A2B1006CEBBE /* welcome_signup@2x.png */,
+				EB1052B51AB6AE57006CEBBE /* button_back@2x.png */,
 			);
 			name = "Images to Sort";
 			sourceTree = "<group>";
@@ -387,9 +384,8 @@
 				EB1052B41AB6A683006CEBBE /* revibe_logo@2x.png in Resources */,
 				EB1052341AB670B7006CEBBE /* Main.storyboard in Resources */,
 				EB1052361AB670B7006CEBBE /* Images.xcassets in Resources */,
-				EB1052AF1AB6A2B1006CEBBE /* welcome_signup@2x.png in Resources */,
 				EB10527D1AB67835006CEBBE /* ProgressHUD.bundle in Resources */,
-				EB1052AE1AB6A2B1006CEBBE /* welcome_login@2x.png in Resources */,
+				EB1052B61AB6AE57006CEBBE /* button_back@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

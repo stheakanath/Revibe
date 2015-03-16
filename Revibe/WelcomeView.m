@@ -7,7 +7,6 @@
 //
 
 #import "WelcomeView.h"
-#import "AppConstant.h"
 
 @interface WelcomeView ()
 

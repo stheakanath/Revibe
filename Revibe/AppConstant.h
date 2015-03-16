@@ -45,6 +45,7 @@
 #define		PF_USER_EMAIL						@"email"
 #define		PF_USER_INDEX						@"index"
 #define		PF_USER_RANDOM						@"random"
+#define		PF_USER_LIKES                       @"likes"
 #define		PF_USER_NOTIFICATION				@"notification"
 
 #define		PF_CONVERSATIONS_CLASS_NAME			@"Conversations"
