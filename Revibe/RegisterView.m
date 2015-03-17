@@ -196,8 +196,12 @@
     user[PF_USER_NOTIFICATION] = @YES;
     user[PF_USER_LIKES] = @0;
     [user signUpInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
-         if (error != nil)
-             [ProgressHUD showError:error.userInfo[@"error"]];
+        if (error == nil) {
+            ParsePushUserAssign();
+            PostNotification(NOTIFICATION_USER_LOGGED_IN);
+            [ProgressHUD showSuccess:@"Registration was successful."];
+            [self dismissViewControllerAnimated:YES completion:^{ if (delegate != nil) [delegate didRegisterSucessfully]; }];
+        } else [ProgressHUD showError:error.userInfo[@"error"]];
      }];
 }
 

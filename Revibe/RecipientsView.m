@@ -17,10 +17,11 @@
 
 @interface RecipientsView() {
 	NSString *message;
-    NSMutableArray *userFriends, *addressContacts;
-    BOOL friendsLoaded, contactsLoaded;
+    NSMutableArray *userFriends, *addressContacts, *randomUsers;
+    BOOL friendsLoaded, contactsLoaded, randomLoaded;
 	NSMutableDictionary *names;
 	NSMutableDictionary *selected;
+    NSMutableDictionary *selected1;
 	NSIndexPath *indexSelected;
 }
 
@@ -59,9 +60,12 @@
 	self.tableView.tableFooterView = [[UIView alloc] init];
     userFriends = [[NSMutableArray alloc] init];
     addressContacts = [[NSMutableArray alloc] init];
+    randomUsers = [[NSMutableArray alloc] init];
 	names = [[NSMutableDictionary alloc] init];
+    selected1 = [[NSMutableDictionary alloc] init];
 	selected = [[NSMutableDictionary alloc] init];
 	[self loadFriends];
+    [self loadRandomUser];
 	ABAddressBookRef addressBook = ABAddressBookCreateWithOptions(NULL, nil);
 	ABAddressBookRequestAccessWithCompletion(addressBook, ^(bool granted, CFErrorRef error) {
 		dispatch_async(dispatch_get_main_queue(), ^{
@@ -129,9 +133,44 @@
     }
 }
 
+- (void)loadRandomUser {
+    randomLoaded = NO;
+    PFUser *user = [PFUser currentUser];
+    if ([user[PF_USER_RANDOM] boolValue] == NO) { [randomUsers removeAllObjects]; randomLoaded = YES; return; }
+    PFQuery *query = [PFQuery queryWithClassName:PF_INDEX_CLASS_NAME];
+    [query getFirstObjectInBackgroundWithBlock:^(PFObject *object, NSError *error) {
+        if (error == nil) {
+            NSMutableArray *randoms = [[NSMutableArray alloc] init];
+            for (int i = 0; i < USER_RANDOM_QUERY; i++) {
+                int random = 0;
+                while ((random == 0) || (random == [user[PF_USER_INDEX] intValue])) random = arc4random() % [object[PF_INDEX_LAST] intValue];
+                [randoms addObject:[NSNumber numberWithInt:random]];
+            }
+            PFQuery *query = [PFQuery queryWithClassName:PF_USER_CLASS_NAME];
+            [query whereKey:PF_USER_RANDOM equalTo:@YES];
+            [query whereKey:PF_USER_INDEX containedIn:randoms];
+            [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+                if (error == nil) {
+                    [randomUsers removeAllObjects];
+                    for (NSNumber *random in randoms)
+                        for (PFUser *user in objects)
+                            if ([random intValue] == [user[PF_USER_INDEX] intValue]) {
+                                [randomUsers addObject:user];
+                                goto endLoop;
+                            }
+                endLoop:
+                    randomLoaded = YES;
+                    [self reloadTableIfReady];
+                } else [ProgressHUD showError:error.userInfo[@"error"]];
+            }]; } else [ProgressHUD showError:error.userInfo[@"error"]];
+    }];
+}
+
 - (void)reloadTableIfReady {
-	if (contactsLoaded && friendsLoaded)
-		[self.tableView reloadData];
+    if (contactsLoaded && friendsLoaded && randomLoaded) {
+        [self.tableView reloadData];
+    }
+		
 }
 
 #pragma mark - User actions
@@ -143,6 +182,13 @@
 - (IBAction)actionSend:(id)sender {
 	NSMutableArray *recipients = [[NSMutableArray alloc] init];
 	NSMutableArray *recipientIds = [[NSMutableArray alloc] init];
+    for (PFUser *user in randomUsers) {
+        if (([selected1[user.objectId] boolValue]) && ([recipientIds containsObject:user.objectId] == NO))
+        {
+            [recipients addObject:user];
+            [recipientIds addObject:user.objectId];
+        }
+    }
 	for (PFUser *user in userFriends) {
 		if (([selected[user.objectId] boolValue]) && ([recipientIds containsObject:user.objectId] == NO)) {
 			[recipients addObject:user];
@@ -158,25 +204,36 @@
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-	return 2;
+	return 3;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-	if (section == 0) return [userFriends count];
-	if (section == 1) return [addressContacts count];
-	return 0;
+
+    NSLog(@"%i", [randomUsers count]);
+    if (section == 0) return [randomUsers count];
+	if (section == 1) return [userFriends count];
+	if (section == 2) return [addressContacts count];
+    return 0;
+
+    
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
 	UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell"];
 	if (cell == nil) cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:@"cell"];
-	if (indexPath.section == 0) {
+    if (indexPath.section == 0) {
+        PFUser *user = randomUsers[indexPath.row];
+        NSString *accessoryImage = [selected1[user.objectId] boolValue] ? @"recipients_checked_yes" : @"recipients_checked_no";
+        cell.textLabel.text = @"Anyone on Revibe";
+        cell.textLabel.font = [UIFont fontWithName:@"Avenir-Medium" size:17];
+        cell.accessoryView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:accessoryImage]];
+    } else if (indexPath.section == 1) {
         PFUser *user = userFriends[indexPath.row];
         NSString *accessoryImage = [selected[user.objectId] boolValue] ? @"recipients_checked_yes" : @"recipients_checked_no";
         cell.textLabel.text = user[PF_USER_USERNAME];
         cell.textLabel.font = [UIFont fontWithName:@"Avenir-Medium" size:17];
         cell.accessoryView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:accessoryImage]];
-	} else if (indexPath.section == 1) {
+	} else if (indexPath.section == 2) {
 		NSDictionary *user = addressContacts[indexPath.row];
 		cell.textLabel.text = user[@"name"];
 		cell.textLabel.font = [UIFont fontWithName:@"Avenir-Medium" size:17];
@@ -191,9 +248,11 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
 	[tableView deselectRowAtIndexPath:indexPath animated:YES];
-	if (indexPath.section == 0)
+    if (indexPath.section == 0)
+        [self changeSelected:indexPath Selected:selected1 User:randomUsers[indexPath.row]];
+	if (indexPath.section == 1)
 		[self changeSelected:indexPath Selected:selected User:userFriends[indexPath.row]];
-	if (indexPath.section == 1) {
+	if (indexPath.section == 2) {
 		indexSelected = indexPath;
 		[self inviteUser:addressContacts[indexPath.row]];
 	}
@@ -201,6 +260,7 @@
 
 - (void)changeSelected:(NSIndexPath *)indexPath Selected:(NSMutableDictionary *)selected1 User:(PFUser *)user {
 	UITableViewCell *cell = [self.tableView cellForRowAtIndexPath:indexPath];
+    
 	if ([selected1[user.objectId] boolValue]) {
 		[selected1 removeObjectForKey:user.objectId];
 		cell.accessoryView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"recipients_checked_no"]];

@@ -33,6 +33,7 @@
         self.imageRegistered.frame = CGRectMake([[UIScreen mainScreen] bounds].size.width - 49, 10, 34, 34);
         self.buttonSend = [UIButton buttonWithType:UIButtonTypeCustom];
         self.buttonSend.frame = CGRectMake([[UIScreen mainScreen] bounds].size.width - 60, 0, 60, 54);
+        [self.buttonSend addTarget:self action:@selector(actionSend:) forControlEvents:UIControlEventTouchUpInside];
         [self.contentView addSubview:self.labelUsername];
         [self.contentView addSubview:self.labelLikes];
         [self.contentView addSubview:self.imageHeart];

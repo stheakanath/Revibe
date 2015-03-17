@@ -13,7 +13,7 @@
 
 - (id)initWith:(PFUser *)user_;
 
-@property (weak, nonatomic) IBOutlet UILabel *randomWord;
-@property (weak, nonatomic) IBOutlet UILabel *saySomething;
+@property (strong, nonatomic) IBOutlet UILabel *randomWord;
+@property (strong, nonatomic) IBOutlet UILabel *saySomething;
 
 @end
