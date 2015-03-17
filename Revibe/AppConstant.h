@@ -5,6 +5,7 @@
 #define BLUE_COLOR [UIColor colorWithRed:91/255.0 green:202/255.0 blue:234/255.0 alpha:1]
 #define HEART_COLOR [UIColor colorWithRed:242/255.0 green:120/255.0 blue:122/255.0 alpha:1]
 #define TABLE_COLOR [UIColor colorWithRed:0.953 green:0.953 blue:0.953 alpha:1]
+#define PURPLE_COLOR [UIColor colorWithRed:204/255.0 green:102/255.0 blue:255/255.0 alpha:1]
 
 //-------------------------------------------------------------------------------------------------------------------------------------------------
 #define		DEFAULT_TAB							0

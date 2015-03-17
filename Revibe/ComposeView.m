@@ -64,6 +64,7 @@
     [txtlabl setFont:[UIFont fontWithName:@"Avenir Medium" size:25]];
     [txtlabl setTextAlignment:NSTextAlignmentCenter];
     txtlabl.text = @"Say something";
+    [txtlabl setTextColor:PURPLE_COLOR];
     [self.view addSubview:txtlabl];
 }
 
