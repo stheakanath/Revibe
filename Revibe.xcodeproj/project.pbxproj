@@ -83,6 +83,19 @@
 		EBEAA5EE1AB79E64005DB78B /* main_liked_no@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = EBEAA5E81AB79E64005DB78B /* main_liked_no@2x.png */; };
 		EBEAA5EF1AB79E64005DB78B /* main_liked_yes@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = EBEAA5E91AB79E64005DB78B /* main_liked_yes@2x.png */; };
 		EBEAA5F01AB79E64005DB78B /* main_unread@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = EBEAA5EA1AB79E64005DB78B /* main_unread@2x.png */; };
+		EBEAA5F41AB7A6A6005DB78B /* ChatCell.m in Sources */ = {isa = PBXBuildFile; fileRef = EBEAA5F31AB7A6A6005DB78B /* ChatCell.m */; };
+		EBEAA5F91AB7B126005DB78B /* compose_chatbox_background.png in Resources */ = {isa = PBXBuildFile; fileRef = EBEAA5F71AB7B126005DB78B /* compose_chatbox_background.png */; };
+		EBEAA5FA1AB7B126005DB78B /* compose_send@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = EBEAA5F81AB7B126005DB78B /* compose_send@2x.png */; };
+		EBEAA6011AB7B30F005DB78B /* chat_outgoing2@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = EBEAA5FB1AB7B30F005DB78B /* chat_outgoing2@2x.png */; };
+		EBEAA6021AB7B30F005DB78B /* chat_incoming2@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = EBEAA5FC1AB7B30F005DB78B /* chat_incoming2@2x.png */; };
+		EBEAA6031AB7B30F005DB78B /* chat_block@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = EBEAA5FD1AB7B30F005DB78B /* chat_block@2x.png */; };
+		EBEAA6041AB7B30F005DB78B /* chat_heart@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = EBEAA5FE1AB7B30F005DB78B /* chat_heart@2x.png */; };
+		EBEAA6051AB7B30F005DB78B /* chat_incoming1@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = EBEAA5FF1AB7B30F005DB78B /* chat_incoming1@2x.png */; };
+		EBEAA6061AB7B30F005DB78B /* chat_outgoing1@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = EBEAA6001AB7B30F005DB78B /* chat_outgoing1@2x.png */; };
+		EBEAA60B1AB7BE59005DB78B /* recipients_checked_no@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = EBEAA6071AB7BE59005DB78B /* recipients_checked_no@2x.png */; };
+		EBEAA60C1AB7BE59005DB78B /* recipients_checked_yes@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = EBEAA6081AB7BE59005DB78B /* recipients_checked_yes@2x.png */; };
+		EBEAA60D1AB7BE59005DB78B /* recipients_invite@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = EBEAA6091AB7BE59005DB78B /* recipients_invite@2x.png */; };
+		EBEAA60E1AB7BE59005DB78B /* recipients_send@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = EBEAA60A1AB7BE59005DB78B /* recipients_send@2x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -202,6 +215,20 @@
 		EBEAA5E81AB79E64005DB78B /* main_liked_no@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "main_liked_no@2x.png"; sourceTree = "<group>"; };
 		EBEAA5E91AB79E64005DB78B /* main_liked_yes@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "main_liked_yes@2x.png"; sourceTree = "<group>"; };
 		EBEAA5EA1AB79E64005DB78B /* main_unread@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "main_unread@2x.png"; sourceTree = "<group>"; };
+		EBEAA5F21AB7A6A6005DB78B /* ChatCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChatCell.h; sourceTree = "<group>"; };
+		EBEAA5F31AB7A6A6005DB78B /* ChatCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChatCell.m; sourceTree = "<group>"; };
+		EBEAA5F71AB7B126005DB78B /* compose_chatbox_background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = compose_chatbox_background.png; sourceTree = "<group>"; };
+		EBEAA5F81AB7B126005DB78B /* compose_send@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "compose_send@2x.png"; sourceTree = "<group>"; };
+		EBEAA5FB1AB7B30F005DB78B /* chat_outgoing2@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "chat_outgoing2@2x.png"; sourceTree = "<group>"; };
+		EBEAA5FC1AB7B30F005DB78B /* chat_incoming2@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "chat_incoming2@2x.png"; sourceTree = "<group>"; };
+		EBEAA5FD1AB7B30F005DB78B /* chat_block@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "chat_block@2x.png"; sourceTree = "<group>"; };
+		EBEAA5FE1AB7B30F005DB78B /* chat_heart@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "chat_heart@2x.png"; sourceTree = "<group>"; };
+		EBEAA5FF1AB7B30F005DB78B /* chat_incoming1@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "chat_incoming1@2x.png"; sourceTree = "<group>"; };
+		EBEAA6001AB7B30F005DB78B /* chat_outgoing1@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "chat_outgoing1@2x.png"; sourceTree = "<group>"; };
+		EBEAA6071AB7BE59005DB78B /* recipients_checked_no@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "recipients_checked_no@2x.png"; sourceTree = "<group>"; };
+		EBEAA6081AB7BE59005DB78B /* recipients_checked_yes@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "recipients_checked_yes@2x.png"; sourceTree = "<group>"; };
+		EBEAA6091AB7BE59005DB78B /* recipients_invite@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "recipients_invite@2x.png"; sourceTree = "<group>"; };
+		EBEAA60A1AB7BE59005DB78B /* recipients_send@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "recipients_send@2x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -266,8 +293,8 @@
 				EB10522D1AB670B7006CEBBE /* AppDelegate.m */,
 				EB1052601AB67239006CEBBE /* NavigationController.h */,
 				EB1052611AB67239006CEBBE /* NavigationController.m */,
-				EB1052C61AB6C269006CEBBE /*  These are useless classes, please ignore */,
-				EB1052BA1AB6BBB7006CEBBE /* Chat Tabs */,
+				EBEAA5F11AB7A675005DB78B /* Chat Screen */,
+				EB1052BA1AB6BBB7006CEBBE /* Tab Views */,
 				EB1052701AB67670006CEBBE /* Welcome */,
 				EB1052631AB6724D006CEBBE /* Utilities */,
 				EB1052A91AB6A28E006CEBBE /* Images to Sort */,
@@ -360,6 +387,18 @@
 		EB1052A91AB6A28E006CEBBE /* Images to Sort */ = {
 			isa = PBXGroup;
 			children = (
+				EBEAA6071AB7BE59005DB78B /* recipients_checked_no@2x.png */,
+				EBEAA6081AB7BE59005DB78B /* recipients_checked_yes@2x.png */,
+				EBEAA6091AB7BE59005DB78B /* recipients_invite@2x.png */,
+				EBEAA60A1AB7BE59005DB78B /* recipients_send@2x.png */,
+				EBEAA5FB1AB7B30F005DB78B /* chat_outgoing2@2x.png */,
+				EBEAA5FC1AB7B30F005DB78B /* chat_incoming2@2x.png */,
+				EBEAA5FD1AB7B30F005DB78B /* chat_block@2x.png */,
+				EBEAA5FE1AB7B30F005DB78B /* chat_heart@2x.png */,
+				EBEAA5FF1AB7B30F005DB78B /* chat_incoming1@2x.png */,
+				EBEAA6001AB7B30F005DB78B /* chat_outgoing1@2x.png */,
+				EBEAA5F71AB7B126005DB78B /* compose_chatbox_background.png */,
+				EBEAA5F81AB7B126005DB78B /* compose_send@2x.png */,
 				EBEAA5E51AB79E64005DB78B /* noMessageImage@2x.png */,
 				EBEAA5E61AB79E64005DB78B /* main_background2.png */,
 				EBEAA5E71AB79E64005DB78B /* main_incoming@2x.png */,
@@ -391,7 +430,7 @@
 			name = "Images to Sort";
 			sourceTree = "<group>";
 		};
-		EB1052BA1AB6BBB7006CEBBE /* Chat Tabs */ = {
+		EB1052BA1AB6BBB7006CEBBE /* Tab Views */ = {
 			isa = PBXGroup;
 			children = (
 				EBEAA5DF1AB7996D005DB78B /* MainCell.h */,
@@ -406,20 +445,7 @@
 				EB1052561AB6717A006CEBBE /* SettingsView.m */,
 				EBEAA5B41AB770DE005DB78B /* Settings Subviews */,
 			);
-			name = "Chat Tabs";
-			sourceTree = "<group>";
-		};
-		EB1052C61AB6C269006CEBBE /*  These are useless classes, please ignore */ = {
-			isa = PBXGroup;
-			children = (
-				EB1052C71AB6C276006CEBBE /* ComposeView.h */,
-				EBEAA5E21AB79D64005DB78B /* ChatView.h */,
-				EBEAA5E31AB79D64005DB78B /* ChatView.m */,
-				EB1052CA1AB6C2F8006CEBBE /* RecipientsView.h */,
-				EB1052CB1AB6C2F8006CEBBE /* RecipientsView.m */,
-				EB1052C81AB6C276006CEBBE /* ComposeView.m */,
-			);
-			name = " These are useless classes, please ignore";
+			name = "Tab Views";
 			sourceTree = "<group>";
 		};
 		EBEAA5B41AB770DE005DB78B /* Settings Subviews */ = {
@@ -439,6 +465,21 @@
 				EBEAA5CD1AB78018005DB78B /* TermsView.m */,
 			);
 			name = "Settings Subviews";
+			sourceTree = "<group>";
+		};
+		EBEAA5F11AB7A675005DB78B /* Chat Screen */ = {
+			isa = PBXGroup;
+			children = (
+				EBEAA5F21AB7A6A6005DB78B /* ChatCell.h */,
+				EBEAA5F31AB7A6A6005DB78B /* ChatCell.m */,
+				EBEAA5E21AB79D64005DB78B /* ChatView.h */,
+				EBEAA5E31AB79D64005DB78B /* ChatView.m */,
+				EB1052C71AB6C276006CEBBE /* ComposeView.h */,
+				EB1052C81AB6C276006CEBBE /* ComposeView.m */,
+				EB1052CA1AB6C2F8006CEBBE /* RecipientsView.h */,
+				EB1052CB1AB6C2F8006CEBBE /* RecipientsView.m */,
+			);
+			name = "Chat Screen";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -533,25 +574,37 @@
 				EBEAA5DB1AB78B6A005DB78B /* blocked_background.png in Resources */,
 				EB1052C11AB6C185006CEBBE /* contacts_background.png in Resources */,
 				EBEAA5BC1AB77125005DB78B /* tab3b@2x.png in Resources */,
+				EBEAA5F91AB7B126005DB78B /* compose_chatbox_background.png in Resources */,
 				EBEAA5D71AB78229005DB78B /* settings_off@2x.png in Resources */,
 				EB1052C41AB6C185006CEBBE /* contacts_invite@2x.png in Resources */,
 				EBEAA5D61AB78229005DB78B /* settings_logout@2x.png in Resources */,
+				EBEAA5FA1AB7B126005DB78B /* compose_send@2x.png in Resources */,
 				EB1052C31AB6C185006CEBBE /* contacts_heart@2x.png in Resources */,
 				EBEAA5B71AB77120005DB78B /* tab1a@2x.png in Resources */,
+				EBEAA6031AB7B30F005DB78B /* chat_block@2x.png in Resources */,
 				EBE4BBFD1AB6CFBE004C93AB /* tab2b@2x.png in Resources */,
+				EBEAA6021AB7B30F005DB78B /* chat_incoming2@2x.png in Resources */,
+				EBEAA6051AB7B30F005DB78B /* chat_incoming1@2x.png in Resources */,
 				EBEAA5DE1AB78EF1005DB78B /* account_arrow@2x.png in Resources */,
 				EBEAA5EE1AB79E64005DB78B /* main_liked_no@2x.png in Resources */,
+				EBEAA6011AB7B30F005DB78B /* chat_outgoing2@2x.png in Resources */,
 				EBEAA5B81AB77120005DB78B /* tab1b@2x.png in Resources */,
 				EBEAA5F01AB79E64005DB78B /* main_unread@2x.png in Resources */,
 				EBEAA5ED1AB79E64005DB78B /* main_incoming@2x.png in Resources */,
 				EBEAA5D51AB78229005DB78B /* settings_heart@2x.png in Resources */,
 				EB1052361AB670B7006CEBBE /* Images.xcassets in Resources */,
+				EBEAA60C1AB7BE59005DB78B /* recipients_checked_yes@2x.png in Resources */,
 				EB10527D1AB67835006CEBBE /* ProgressHUD.bundle in Resources */,
 				EBEAA5EB1AB79E64005DB78B /* noMessageImage@2x.png in Resources */,
 				EB1052B61AB6AE57006CEBBE /* button_back@2x.png in Resources */,
 				EB1052C51AB6C185006CEBBE /* contacts_registered@2x.png in Resources */,
+				EBEAA60D1AB7BE59005DB78B /* recipients_invite@2x.png in Resources */,
+				EBEAA6061AB7B30F005DB78B /* chat_outgoing1@2x.png in Resources */,
+				EBEAA6041AB7B30F005DB78B /* chat_heart@2x.png in Resources */,
 				EBEAA5BB1AB77125005DB78B /* tab3a@2x.png in Resources */,
 				EBEAA5EF1AB79E64005DB78B /* main_liked_yes@2x.png in Resources */,
+				EBEAA60E1AB7BE59005DB78B /* recipients_send@2x.png in Resources */,
+				EBEAA60B1AB7BE59005DB78B /* recipients_checked_no@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -572,6 +625,7 @@
 				EB1052501AB6713F006CEBBE /* MainView.m in Sources */,
 				EB1052841AB6786A006CEBBE /* pushnotification.m in Sources */,
 				EB1052661AB6725F006CEBBE /* utilities.m in Sources */,
+				EBEAA5F41AB7A6A6005DB78B /* ChatCell.m in Sources */,
 				EB1052731AB676AE006CEBBE /* LoginView.m in Sources */,
 				EBEAA5C21AB77FD9005DB78B /* AccountView.m in Sources */,
 				EBEAA5BF1AB77FCA005DB78B /* BlockedView.m in Sources */,
@@ -720,6 +774,7 @@
 				INFOPLIST_FILE = Revibe/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -738,6 +793,7 @@
 				INFOPLIST_FILE = Revibe/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;

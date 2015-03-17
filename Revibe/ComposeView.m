@@ -1,92 +1,93 @@
+//
+//  ComposeView.m
+//  Revibe
+//
+//  Created by Sony Theakanath on 3/16/15.
+//  Copyright (c) 2015 Sony Theakanath. All rights reserved.
+//
 
 #import <Parse/Parse.h>
-
 #import "AppConstant.h"
 #import "conversations.h"
-
 #import "ComposeView.h"
 #import "RecipientsView.h"
 
-//-------------------------------------------------------------------------------------------------------------------------------------------------
-@interface ComposeView()
-{
+@interface ComposeView() {
 	PFUser *user;
 	CGFloat heightKeyboard;
 }
 
 @property (strong, nonatomic) IBOutlet UITableView *tableView;
-
 @property (strong, nonatomic) IBOutlet UIView *viewInput;
 @property (strong, nonatomic) IBOutlet UIView *viewBackground;
 @property (strong, nonatomic) IBOutlet UITextView *textInput;
 @property (strong, nonatomic) IBOutlet UIButton *buttonSend;
 
 @end
-//-------------------------------------------------------------------------------------------------------------------------------------------------
 
 @implementation ComposeView
 
 @synthesize viewInput, viewBackground, textInput, buttonSend;
 
-//-------------------------------------------------------------------------------------------------------------------------------------------------
-- (id)initWith:(PFUser *)user_
-//-------------------------------------------------------------------------------------------------------------------------------------------------
-{
+- (id)initWith:(PFUser *)user_ {
 	self = [super init];
 	user = user_;
 	return self;
 }
 
-//-------------------------------------------------------------------------------------------------------------------------------------------------
-- (void)viewDidLoad
-//-------------------------------------------------------------------------------------------------------------------------------------------------
-{
-    
-    [UIView animateWithDuration:1
-                          delay:0  /* starts the animation after 3 seconds */
-                        options:UIViewAnimationOptionCurveEaseOut
-                     animations:^ {
-                         _saySomething.alpha = 0.0;
-                         _saySomething.alpha = 1.0;
-                     }
-                     completion:^(BOOL finished) {
-                         
-                     }];
-    
+- (void) setUpInterface {
+    self.tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, [[UIScreen mainScreen] bounds].size.width, [[UIScreen mainScreen] bounds].size.height - 119)];
+    [self.view addSubview:self.tableView];
+    self.tableView.delegate = self;
+    self.tableView.dataSource = self;
+    [self.tableView setSeparatorStyle:UITableViewCellSeparatorStyleNone];
+    self.viewInput = [[UIView alloc] initWithFrame:CGRectMake(0, [[UIScreen mainScreen] bounds].size.height - 119, [[UIScreen mainScreen] bounds].size.width, 55)];
+    [self.viewInput setBackgroundColor:GREEN_COLOR];
+    self.viewBackground = [[UIView alloc] initWithFrame:CGRectMake(0, 0, [[UIScreen mainScreen] bounds].size.width - 80, 55)];
+    [self.viewBackground setBackgroundColor:TABLE_COLOR];
+    [self.viewInput addSubview:self.viewBackground];
+    self.textInput = [[UITextView alloc] initWithFrame:CGRectMake(5, 5, [[UIScreen mainScreen] bounds].size.width - 90, 45)];
+    [self.textInput setFont:[UIFont fontWithName:@"Avenir Medium" size:21]];
+    [self.textInput setBackgroundColor:[UIColor clearColor]];
+    self.textInput.delegate = self;
+    [self.viewInput addSubview:self.textInput];
+    self.buttonSend = [UIButton buttonWithType:UIButtonTypeCustom];
+    [self.buttonSend setImage:[UIImage imageNamed:@"compose_send"] forState:UIControlStateNormal];
+    self.buttonSend.frame = CGRectMake([[UIScreen mainScreen] bounds].size.width - 60, 13, 40, 29);
+    [self.buttonSend addTarget:self action:@selector(actionSend:) forControlEvents:UIControlEventTouchUpInside];
+    [self.viewInput addSubview:self.buttonSend];
+    [self.view addSubview:self.viewInput];
+    UIImageView *img = [[UIImageView alloc] initWithFrame:CGRectMake([[UIScreen mainScreen] bounds].size.width/2-66, 50, 132, 52)];
+    img.image = [UIImage imageNamed:@"compose_chatbox_background"];
+    [self.view addSubview:img];
+    UILabel *txtlabl = [[UILabel alloc] initWithFrame:CGRectMake([[UIScreen mainScreen] bounds].size.width/2-85, 105, 171, 28)];
+    [txtlabl setFont:[UIFont fontWithName:@"Avenir Medium" size:25]];
+    [txtlabl setTextAlignment:NSTextAlignmentCenter];
+    txtlabl.text = @"Say something";
+    [self.view addSubview:txtlabl];
+}
+
+- (void)viewDidLoad {
+    [self setUpInterface];
+    [UIView animateWithDuration:1 delay:0 options:UIViewAnimationOptionCurveEaseOut animations:^ {
+        _saySomething.alpha = 0.0;
+        _saySomething.alpha = 1.0;
+    } completion:^(BOOL finished) {}];
 	[super viewDidLoad];
 	self.title = @"Send Vibe";
-	//---------------------------------------------------------------------------------------------------------------------------------------------
-	self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"button_back"]
-																	 style:UIBarButtonItemStylePlain target:self action:@selector(actionBack)];
-	//---------------------------------------------------------------------------------------------------------------------------------------------
+	self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"button_back"] style:UIBarButtonItemStylePlain target:self action:@selector(actionBack)];
 	self.tableView.tableFooterView = [[UIView alloc] init];
-	//---------------------------------------------------------------------------------------------------------------------------------------------
 	heightKeyboard = 0;
-	//---------------------------------------------------------------------------------------------------------------------------------------------
 	[self registerForKeyboardNotifications];
 }
 
-//-------------------------------------------------------------------------------------------------------------------------------------------------
-- (void)viewDidAppear:(BOOL)animated
-//-------------------------------------------------------------------------------------------------------------------------------------------------
-{
-        [UIView animateWithDuration:1
-                              delay:.2
-                            options:UIViewAnimationOptionCurveEaseOut
-                         animations:^ {
-                             _randomWord.alpha = 0.0;
-                             _randomWord.alpha = 1.0;
-                             
-                         }
-                         completion:^(BOOL finished) {
-                             
-                         }];
-    
-    
+- (void)viewDidAppear:(BOOL)animated {
+    [UIView animateWithDuration:1 delay:.2 options:UIViewAnimationOptionCurveEaseOut animations:^ {
+        _randomWord.alpha = 0.0;
+        _randomWord.alpha = 1.0;
+    } completion:^(BOOL finished) {}];
     int randomlabel = arc4random() % 45;
-    
     switch (randomlabel) {
-            
         case 0:
             _randomWord.text = @"🐯";
             break;
@@ -231,71 +232,50 @@
 
 #pragma mark - Keyboard Notifications
 
-//-------------------------------------------------------------------------------------------------------------------------------------------------
-- (void)registerForKeyboardNotifications
-//-------------------------------------------------------------------------------------------------------------------------------------------------
-{
+- (void)registerForKeyboardNotifications {
 	[self.view addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(dismissKeyboard)]];
 	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillShow:) name:UIKeyboardWillShowNotification object:nil];
 	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillHide:) name:UIKeyboardWillHideNotification object:nil];
 }
 
-//-------------------------------------------------------------------------------------------------------------------------------------------------
-- (void)dismissKeyboard
-//-------------------------------------------------------------------------------------------------------------------------------------------------
-{
+- (void)dismissKeyboard {
 	[self.view endEditing:YES];
 }
 
-//-------------------------------------------------------------------------------------------------------------------------------------------------
-- (void)keyboardWillShow:(NSNotification *)notification
-//-------------------------------------------------------------------------------------------------------------------------------------------------
-{
-	NSDictionary *info = [notification userInfo];
+- (void)keyboardWillShow:(NSNotification *)notification {
+    NSDictionary *info = [notification userInfo];
     CGRect frame = [[info valueForKey:UIKeyboardFrameEndUserInfoKey] CGRectValue];
-	NSTimeInterval duration = [[info valueForKey:UIKeyboardAnimationDurationUserInfoKey] doubleValue];
-	[UIView animateWithDuration:duration delay:0 options:UIViewAnimationOptionCurveEaseInOut animations:^{
+    NSTimeInterval duration = [[info valueForKey:UIKeyboardAnimationDurationUserInfoKey] doubleValue];
+    [UIView animateWithDuration:duration delay:0 options:UIViewAnimationOptionCurveEaseInOut animations:^{
         heightKeyboard = frame.size.height;
-        viewInput.frame = CGRectMake(0, self.view.frame.size.height - heightKeyboard - 50, 320, 55);
-	} completion:nil];
+        viewInput.frame = CGRectMake(0, [[UIScreen mainScreen] bounds].size.height - 119 - heightKeyboard, [[UIScreen mainScreen] bounds].size.width, 55);
+        self.tableView.frame = CGRectMake(0, 0, [[UIScreen mainScreen] bounds].size.width, [[UIScreen mainScreen] bounds].size.height - 119 - heightKeyboard);
+    } completion:nil];
 }
 
-//-------------------------------------------------------------------------------------------------------------------------------------------------
-- (void)keyboardWillHide:(NSNotification *)notification
-//-------------------------------------------------------------------------------------------------------------------------------------------------
-{
-	NSDictionary *info = [notification userInfo];
-	NSTimeInterval duration = [[info valueForKey:UIKeyboardAnimationDurationUserInfoKey] doubleValue];
-	
-	[UIView animateWithDuration:duration delay:0 options:UIViewAnimationOptionCurveEaseInOut animations:^{
-		heightKeyboard = 0;
-		viewInput.frame = CGRectMake(0, self.view.frame.size.height - 50, 320, 55);
-	} completion:nil];
+- (void)keyboardWillHide:(NSNotification *)notification {
+    NSDictionary *info = [notification userInfo];
+    NSTimeInterval duration = [[info valueForKey:UIKeyboardAnimationDurationUserInfoKey] doubleValue];
+    [UIView animateWithDuration:duration delay:0 options:UIViewAnimationOptionCurveEaseInOut animations:^{
+        heightKeyboard = 0;
+        viewInput.frame = CGRectMake(0, [[UIScreen mainScreen] bounds].size.height - 119, [[UIScreen mainScreen] bounds].size.width, 55);
+        self.tableView.frame = CGRectMake(0, 0, [[UIScreen mainScreen] bounds].size.width, [[UIScreen mainScreen] bounds].size.height - 119);
+    } completion:nil];
 }
 
 #pragma mark - User actions
 
-//-------------------------------------------------------------------------------------------------------------------------------------------------
-- (void)actionBack
-//-------------------------------------------------------------------------------------------------------------------------------------------------
-{
+- (void)actionBack {
 	[self dismissViewControllerAnimated:YES completion:nil];
 }
 
-//-------------------------------------------------------------------------------------------------------------------------------------------------
-- (IBAction)actionSend:(id)sender
-//-------------------------------------------------------------------------------------------------------------------------------------------------
-{
+- (IBAction)actionSend:(id)sender {
 	NSString *text = textInput.text;
-	if ([text length] != 0)
-	{
-		if (user != nil)
-		{
+	if ([text length] != 0) {
+		if (user != nil) {
 			CreateConversation(user, text);
 			[self actionBack];
-		}
-		else
-		{
+		} else {
 			RecipientsView *recipientsView = [[RecipientsView alloc] initWith:text];
 			[self.navigationController pushViewController:recipientsView animated:YES];
 		}
@@ -304,63 +284,39 @@
 
 #pragma mark - Table view data source
 
-//-------------------------------------------------------------------------------------------------------------------------------------------------
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
-//-------------------------------------------------------------------------------------------------------------------------------------------------
-{
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
 	return 0;
 }
 
-//-------------------------------------------------------------------------------------------------------------------------------------------------
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
-//-------------------------------------------------------------------------------------------------------------------------------------------------
-{
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
 	return 0;
 }
 
-//-------------------------------------------------------------------------------------------------------------------------------------------------
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
-//-------------------------------------------------------------------------------------------------------------------------------------------------
-{
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
 	return nil;
 }
 
 #pragma mark - Table view delegate
 
-//-------------------------------------------------------------------------------------------------------------------------------------------------
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
-//-------------------------------------------------------------------------------------------------------------------------------------------------
-{
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
 
 }
 
 #pragma mark - UITextViewDelegate
 
-//-------------------------------------------------------------------------------------------------------------------------------------------------
-- (void)textViewDidChange:(UITextView *)textView
-//-------------------------------------------------------------------------------------------------------------------------------------------------
-{
+- (void)textViewDidChange:(UITextView *)textView {
 	CGFloat widthText = textInput.frame.size.width;
 	CGSize sizeText = [textInput sizeThatFits:CGSizeMake(widthText, MAXFLOAT)];
 	CGFloat heightText = fminf(MAX_HEIGHT_INPUT, fmaxf(45, sizeText.height));
 	CGFloat heightView = heightText + 10;
-	//---------------------------------------------------------------------------------------------------------------------------------------------
-    viewInput.frame = CGRectMake(0, self.view.frame.size.height - heightKeyboard - heightView, 320, heightView);
-	viewBackground.frame = CGRectMake(0, 0, 240, heightView);
-	textInput.frame = CGRectMake(5, 5, widthText, heightText);
-	buttonSend.frame = CGRectMake(260, (heightView-29)/2, 40, 29);
-    
+    viewInput.frame = CGRectMake(0, self.view.frame.size.height - heightKeyboard - heightView, [[UIScreen mainScreen] bounds].size.width, heightView);
+    viewBackground.frame = CGRectMake(0, 0, [[UIScreen mainScreen] bounds].size.width- 80, heightView);
+    textInput.frame = CGRectMake(5, 5, widthText, heightText);
+    buttonSend.frame = CGRectMake([[UIScreen mainScreen] bounds].size.width - 60, (heightView-29)/2, 40, 29);
     NSInteger restrictedLength=150;
     NSString *temp=textView.text;
-    
-    if([[textView text] length] > restrictedLength){
-        
+    if([[textView text] length] > restrictedLength)
         textView.text=[temp substringToIndex:[temp length]-1];
-        
-    }
-    
 }
 
-- (IBAction)randomWord:(id)sender {
-}
 @end
