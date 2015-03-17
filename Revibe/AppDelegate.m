@@ -33,7 +33,7 @@
     self.tabBarController.tabBar.translucent = NO;
     self.tabBarController.tabBar.shadowImage = [[UIImage alloc] init];
     self.tabBarController.tabBar.backgroundImage = [[UIImage alloc] init];
-    self.tabBarController.tabBar.barTintColor = HEXCOLOR(0xEAEAEAFF);
+    self.tabBarController.tabBar.barTintColor = HEXCOLOR(0xFFFFFFFF);
     self.tabBarController.selectedIndex = DEFAULT_TAB;
     self.tabBarController.delegate = self.mainView;
     self.window.rootViewController = self.tabBarController;

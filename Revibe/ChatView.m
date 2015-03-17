@@ -283,7 +283,6 @@
     if([[textView text] length] > restrictedLength){
         textView.text=[temp substringToIndex:[temp length]-1];
     }
-    
 }
 
 #pragma mark - Helper methods
