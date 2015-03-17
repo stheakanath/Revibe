@@ -260,6 +260,7 @@
     else
         for (UIView *subview in cell.contentView.subviews)
             [subview removeFromSuperview];
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
     [cell bindData:messages[indexPath.row] Outgoing:outgoing Liked:isLiked ChatView:self IndexPath:indexPath];
     cell.layoutMargins = UIEdgeInsetsZero;
     cell.preservesSuperviewLayoutMargins = NO;
@@ -277,7 +278,7 @@
     viewBackground.frame = CGRectMake(0, 0, [[UIScreen mainScreen] bounds].size.width- 80, heightView);
     textInput.frame = CGRectMake(5, 5, widthText, heightText);
     buttonSend.frame = CGRectMake([[UIScreen mainScreen] bounds].size.width - 60, (heightView-29)/2, 40, 29);
-    NSInteger restrictedLength=150;
+    NSInteger restrictedLength = 150;
     NSString *temp=textView.text;
     if([[textView text] length] > restrictedLength){
         textView.text=[temp substringToIndex:[temp length]-1];
