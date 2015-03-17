@@ -208,14 +208,10 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-
-    NSLog(@"%i", [randomUsers count]);
     if (section == 0) return [randomUsers count];
 	if (section == 1) return [userFriends count];
 	if (section == 2) return [addressContacts count];
     return 0;
-
-    
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -258,14 +254,13 @@
 	}
 }
 
-- (void)changeSelected:(NSIndexPath *)indexPath Selected:(NSMutableDictionary *)selected1 User:(PFUser *)user {
+- (void)changeSelected:(NSIndexPath *)indexPath Selected:(NSMutableDictionary *)selected2 User:(PFUser *)user {
 	UITableViewCell *cell = [self.tableView cellForRowAtIndexPath:indexPath];
-    
-	if ([selected1[user.objectId] boolValue]) {
-		[selected1 removeObjectForKey:user.objectId];
+	if ([selected2[user.objectId] boolValue]) {
+		[selected2 removeObjectForKey:user.objectId];
 		cell.accessoryView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"recipients_checked_no"]];
 	} else {
-		selected1[user.objectId] = @YES;
+		selected2[user.objectId] = @YES;
 		cell.accessoryView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"recipients_checked_yes"]];
 	}
 }

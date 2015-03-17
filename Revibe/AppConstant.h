@@ -28,7 +28,7 @@
 #define		COLOR_OUTGOING_LIKED				HEXCOLOR(0xD5F49FFF)
 
 //-------------------------------------------------------------------------------------------------------------------------------------------------
-#define		MESSAGE_INVITE_ADDRESSBOOK			@"Hey! Add me on Revibe. My name is %@. http://revibeapp.com"
+#define		MESSAGE_INVITE_ADDRESSBOOK			@"Message me anything on Revibe, I won't know it's you. My username is %@. http://revibeapp.com"
 
 #define		MESSAGE_PUSH_UNREAD					@"Conversation unread value changed."
 #define		MESSAGE_PUSH_LIKED					@"Conversation liked value changed."
