@@ -50,6 +50,7 @@
         
         self.labelMessage = [[UILabel alloc] initWithFrame:CGRectMake(15, 20, [[UIScreen mainScreen] bounds].size.width-30, 45)];
         [self.labelMessage setFont:[UIFont fontWithName:@"Avenir Next Medium" size:16]];
+        self.labelMessage.lineBreakMode = NSLineBreakByWordWrapping;
         self.labelMessage.numberOfLines = 0;
         [self.contentView addSubview:self.labelMessage];
 

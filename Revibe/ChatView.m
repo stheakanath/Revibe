@@ -68,7 +68,8 @@
     [self.viewInput addSubview:self.buttonSend];
     [self.view addSubview:self.viewInput];
     self.labelMessage = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, [[UIScreen mainScreen] bounds].size.width - 20, 60)];
-    [self.labelMessage setFont:[UIFont fontWithName:@"Avenir Next Medium" size:12]];
+    self.labelMessage.numberOfLines = 0;
+    [self.labelMessage setFont:[UIFont fontWithName:@"Avenir Next Medium" size:16]];
 }
 
 - (void)viewDidLoad {
@@ -243,8 +244,8 @@
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     NSDictionary *message = messages[indexPath.row];
     labelMessage.text = message[@"text"];
-    CGSize sizeText = [labelMessage sizeThatFits:CGSizeMake(165, MAXFLOAT)];
-    return sizeText.height + 55;
+    CGSize sizeText = [labelMessage sizeThatFits:CGSizeMake(290, MAXFLOAT)];
+    return sizeText.height + 45;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
