@@ -97,8 +97,8 @@
     oneTap.numberOfTapsRequired = 1;
     [viewBackground addGestureRecognizer:oneTap];
     if (UIGestureRecognizerStateBegan) {
-        [UIView animateWithDuration:.35f delay:.2f options:UIViewAnimationOptionCurveEaseOut animations:^ {
-            viewBackground.transform = CGAffineTransformMakeScale(1.65f, 1.65f);
+        [UIView animateWithDuration:.33f delay:0.0f options:UIViewAnimationOptionCurveEaseOut animations:^ {
+            viewBackground.transform = CGAffineTransformMakeScale(2.25f, 2.25f);
             viewBackground.transform = CGAffineTransformMakeScale(1.0f, 1.0f);
         } completion:^(BOOL finished) {}];
     }
