@@ -41,6 +41,10 @@
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
     [self.tableView setSeparatorStyle:UITableViewCellSeparatorStyleNone];
+    self.randomWord = [[UILabel alloc] initWithFrame:CGRectMake([[UIScreen mainScreen] bounds].size.width/2-150, 130, 300, 50)];
+    [self.randomWord setFont:[UIFont fontWithName:@"Avenir Medium" size:35]];
+    [self.randomWord setTextAlignment:NSTextAlignmentCenter];
+    [self.view addSubview:self.randomWord];
     self.viewInput = [[UIView alloc] initWithFrame:CGRectMake(0, [[UIScreen mainScreen] bounds].size.height - 119, [[UIScreen mainScreen] bounds].size.width, 55)];
     [self.viewInput setBackgroundColor:GREEN_COLOR];
     self.viewBackground = [[UIView alloc] initWithFrame:CGRectMake(0, 0, [[UIScreen mainScreen] bounds].size.width - 80, 55)];
@@ -66,10 +70,6 @@
     txtlabl.text = @"Say something";
     [txtlabl setTextColor:PURPLE_COLOR];
     [self.view addSubview:txtlabl];
-    self.randomWord = [[UILabel alloc] initWithFrame:CGRectMake([[UIScreen mainScreen] bounds].size.width/2-50, 130, 100, 38)];
-    [self.randomWord setFont:[UIFont fontWithName:@"Avenir Medium" size:35]];
-    [self.randomWord setTextAlignment:NSTextAlignmentCenter];
-    [self.view addSubview:self.randomWord];
 }
 
 - (void)viewDidLoad {

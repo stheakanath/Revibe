@@ -183,6 +183,7 @@
 
 - (void)actionLogout {
     UIActionSheet *action = [[UIActionSheet alloc] initWithTitle:nil delegate:self cancelButtonTitle:@"Cancel" destructiveButtonTitle:@"Log out" otherButtonTitles:nil];
+    action.actionSheetStyle = UIActionSheetStyleDefault;
     [action showFromTabBar:[[self tabBarController] tabBar]];
 }
 
