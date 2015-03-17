@@ -70,12 +70,12 @@
     chatView = chatView_;
     indexPath = indexPath_;
     labelMessage.text = message[@"text"];
-    CGSize sizeText = [labelMessage sizeThatFits:CGSizeMake(290, MAXFLOAT)];
+    CGSize sizeText = [labelMessage sizeThatFits:CGSizeMake( [[UIScreen mainScreen] bounds].size.width-30, MAXFLOAT)];
     CGFloat widhtText = fmaxf(20, sizeText.width);
     CGFloat heightText = sizeText.height;
     CGFloat widhtBack = widhtText + 10;
     CGFloat heightBack = heightText + 10;
-    CGFloat xpos = outgoing ? (310 - widhtBack) : 10;
+    CGFloat xpos = outgoing ? ( [[UIScreen mainScreen] bounds].size.width-10 - widhtBack) : 10;
     viewBackground.frame = CGRectMake(xpos, 15, widhtBack, heightBack);
     labelMessage.frame = CGRectMake(xpos+5, 20, widhtText, heightText);
     UIColor *color = liked ? COLOR_INCOMING_LIKED : COLOR_INCOMING_PLAIN;
@@ -105,6 +105,7 @@
         } completion:^(BOOL finished) {}];
     }
 }
+
 
 #pragma mark - User actions
 
