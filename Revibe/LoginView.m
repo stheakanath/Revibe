@@ -47,7 +47,7 @@ int keyboardHeight;
     [self.fieldPassword setFont:[UIFont fontWithName:@"Avenir Medium" size:32]];
     [self.fieldPassword setLeftViewMode:UITextFieldViewModeAlways];
     [self.fieldPassword setTextColor:BLUE_COLOR];
-    [self.fieldPassword setPlaceholder:@"NEW PASSWORD"];
+    [self.fieldPassword setPlaceholder:@"PASSWORD"];
     [self.fieldPassword setDelegate:self];
     self.fieldPassword.secureTextEntry = YES;
     [self.fieldPassword setLeftView:spacerView1];
@@ -155,7 +155,8 @@ int keyboardHeight;
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
     if (buttonIndex != alertView.cancelButtonIndex)
     {
-        NSString *username = fieldUsername.text;
+        NSString *username = [[fieldUsername.text lowercaseString] stringByTrimmingCharactersInSet:
+                              [NSCharacterSet whitespaceCharacterSet]];
         PFQuery *query = [PFQuery queryWithClassName:PF_USER_CLASS_NAME];
         [query whereKey:PF_USER_USERNAME equalTo:username];
         [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {

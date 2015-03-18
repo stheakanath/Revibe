@@ -1,5 +1,3 @@
-
-//-------------------------------------------------------------------------------------------------------------------------------------------------
 #define HEXCOLOR(c) [UIColor colorWithRed:((c>>24)&0xFF)/255.0 green:((c>>16)&0xFF)/255.0 blue:((c>>8)&0xFF)/255.0 alpha:((c)&0xFF)/255.0]
 #define GREEN_COLOR [UIColor colorWithRed:199/255.0 green:224/255.0 blue:162/255.0 alpha:1]
 #define BLUE_COLOR [UIColor colorWithRed:91/255.0 green:202/255.0 blue:234/255.0 alpha:1]
@@ -14,11 +12,6 @@
 #define		DELAY_LIKED_USER					2
 #define		USER_RANDOM_QUERY					10
 #define		MAX_HEIGHT_INPUT					100
-
-//-------------------------------------------------------------------------------------------------------------------------------------------------
-#define		TITLES_LAST_INDEX					227
-
-//-------------------------------------------------------------------------------------------------------------------------------------------------
 
 //I'VE REARRANGED THE COLORS HERE
 
@@ -44,6 +37,7 @@
 #define		PF_USER_CLASS_NAME					@"_User"
 #define		PF_USER_OBJECTID					@"objectId"
 #define		PF_USER_USERNAME					@"username"
+#define		PF_USER_CASE_USERNAME				@"case_username"
 #define		PF_USER_PASSWORD					@"password"
 #define		PF_USER_EMAIL						@"email"
 #define		PF_USER_INDEX						@"index"
@@ -72,12 +66,6 @@
 #define		PF_INDEX_CLASS_NAME					@"Index"
 #define		PF_INDEX_LAST						@"last"
 
-#define		PF_TITLES_CLASS_NAME				@"Titles"
-#define		PF_TITLES_TITLE						@"title"
-#define		PF_TITLES_INDEX						@"index"
-
-
-//-------------------------------------------------------------------------------------------------------------------------------------------------
 #define		NOTIFICATION_APP_STARTED			@"NCAppStarted"
 #define		NOTIFICATION_USER_LOGGED_IN			@"NCUserLoggedIn"
 #define		NOTIFICATION_USER_LOGGED_OUT		@"NCUserLoggedOut"

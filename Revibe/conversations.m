@@ -15,31 +15,23 @@ void CreateConversations(NSMutableArray *recipients, NSString *message) {
 }
 
 void CreateConversation(PFUser *user, NSString *message) {
-	int random = 0;
-	while (random == 0) random = arc4random() % TITLES_LAST_INDEX;
-	PFQuery *query = [PFQuery queryWithClassName:PF_TITLES_CLASS_NAME];
-	[query whereKey:PF_TITLES_INDEX equalTo:[NSNumber numberWithInt:random]];
-	[query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
-		if (error == nil) {
-			PFObject *conversation = [PFObject objectWithClassName:PF_CONVERSATIONS_CLASS_NAME];
-			conversation[PF_CONVERSATIONS_USER1] = [PFUser currentUser];
-			conversation[PF_CONVERSATIONS_USER2] = user;
-			conversation[PF_CONVERSATIONS_TITLE] = user[PF_USER_USERNAME];
-			conversation[PF_CONVERSATIONS_LASTKEY] = @"";
-			conversation[PF_CONVERSATIONS_LASTMESSAGE] = message;
-			conversation[PF_CONVERSATIONS_LASTCREATED] = [NSDate date];
-			conversation[PF_CONVERSATIONS_LASTUSER] = [PFUser currentUser];
-			conversation[PF_CONVERSATIONS_UNREAD1] = @NO;
-			conversation[PF_CONVERSATIONS_UNREAD2] = @YES;
-			conversation[PF_CONVERSATIONS_LIKED] = [NSArray array];
-			[conversation saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
-				if (error == nil) {
-					CreateFirebaseItem(conversation, message);
-					PostNotification(NOTIFICATION_CONVERSATION_CREATED);
-				} else NSLog(@"CreateConversation save error.");
-			}];
-		} else NSLog(@"CreateConversation query error.");
-	}];
+    PFObject *conversation = [PFObject objectWithClassName:PF_CONVERSATIONS_CLASS_NAME];
+    conversation[PF_CONVERSATIONS_USER1] = [PFUser currentUser];
+    conversation[PF_CONVERSATIONS_USER2] = user;
+    conversation[PF_CONVERSATIONS_TITLE] = user[PF_USER_USERNAME];
+    conversation[PF_CONVERSATIONS_LASTKEY] = @"";
+    conversation[PF_CONVERSATIONS_LASTMESSAGE] = message;
+    conversation[PF_CONVERSATIONS_LASTCREATED] = [NSDate date];
+    conversation[PF_CONVERSATIONS_LASTUSER] = [PFUser currentUser];
+    conversation[PF_CONVERSATIONS_UNREAD1] = @NO;
+    conversation[PF_CONVERSATIONS_UNREAD2] = @YES;
+    conversation[PF_CONVERSATIONS_LIKED] = [NSArray array];
+    [conversation saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+        if (error == nil) {
+            CreateFirebaseItem(conversation, message);
+            PostNotification(NOTIFICATION_CONVERSATION_CREATED);
+        } else NSLog(@"CreateConversation save error.");
+    }];
 }
 
 void CreateFirebaseItem(PFObject *conversation, NSString *text) {

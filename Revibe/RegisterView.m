@@ -192,6 +192,8 @@
     user.password = dict[@"password"];
     user.email = dict[@"email"];
     user[PF_USER_INDEX] = dict[@"index"];
+    user[PF_USER_CASE_USERNAME] = [[dict[@"username"] lowercaseString] stringByTrimmingCharactersInSet:
+    [NSCharacterSet whitespaceCharacterSet]];
     user[PF_USER_RANDOM] = @YES;
     user[PF_USER_NOTIFICATION] = @YES;
     user[PF_USER_LIKES] = @0;

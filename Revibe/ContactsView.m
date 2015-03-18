@@ -240,11 +240,12 @@
 
 - (IBAction)actionAdd:(id)sender {
     [self dismissKeyboard];
-    NSString *username = [fieldUsername.text copy];
+    NSString *username = [[[fieldUsername.text copy] lowercaseString] stringByTrimmingCharactersInSet:
+                                                    [NSCharacterSet whitespaceCharacterSet]];
     if ([username length] != 0) {
         PFUser *user = [PFUser currentUser];
         PFQuery *query = [PFQuery queryWithClassName:PF_USER_CLASS_NAME];
-        [query whereKey:PF_USER_USERNAME equalTo:username];
+        [query whereKey:PF_USER_CASE_USERNAME equalTo:username];
         [query whereKey:PF_USER_OBJECTID notEqualTo:user.objectId];
         [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
              if (error == nil) {
