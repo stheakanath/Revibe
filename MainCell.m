@@ -43,10 +43,11 @@
         [self.labelElapsed setFont:[UIFont fontWithName:@"Avenir Medium" size:12]];
         [self.contentView addSubview:self.labelElapsed];
         
-        self.labelMessage = [[UILabel alloc] initWithFrame:CGRectMake(15, 28, 252, 60)];
+        self.labelMessage = [[UILabel alloc] initWithFrame:CGRectMake(15, 28, [[UIScreen mainScreen] bounds].size.width-90, 60)];
         [self.labelMessage setTextColor:[UIColor darkGrayColor]];
         [self.labelMessage setNumberOfLines:2];
         [self.labelMessage setFont:[UIFont fontWithName:@"Avenir Medium" size:16]];
+        self.labelMessage.lineBreakMode = NSLineBreakByWordWrapping;
         [self.contentView addSubview:self.labelMessage];
         
         self.imageUnread = [[UIImageView alloc] initWithFrame:CGRectMake(3, 53, 7, 7)];

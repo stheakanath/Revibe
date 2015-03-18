@@ -99,14 +99,14 @@
     [queryCompound orderByDescending:PF_CONVERSATIONS_CREATEDAT];
     [queryCompound setLimit:1000];
     [queryCompound findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
-         if (error == nil) {
-             [conversations removeAllObjects];
-             [conversations addObjectsFromArray:objects];
-             [self.tableView reloadData];
-             [self countUnread];
-         } else [ProgressHUD showError:error.userInfo[@"error"]];
-         [self.refreshControl endRefreshing];
-     }];
+        if (error == nil) {
+            [conversations removeAllObjects];
+            [conversations addObjectsFromArray:objects];
+            [self.tableView reloadData];
+            [self countUnread];
+        } else [ProgressHUD showError:error.userInfo[@"error"]];
+        [self.refreshControl endRefreshing];
+    }];
 }
 
 #pragma mark - Helper methods
