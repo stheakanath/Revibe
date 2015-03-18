@@ -41,6 +41,15 @@
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
     [self.tableView setSeparatorStyle:UITableViewCellSeparatorStyleNone];
+    UIImageView *img = [[UIImageView alloc] initWithFrame:CGRectMake([[UIScreen mainScreen] bounds].size.width/2-66, 50, 132, 52)];
+    img.image = [UIImage imageNamed:@"compose_chatbox_background"];
+    [self.view addSubview:img];
+    UILabel *txtlabl = [[UILabel alloc] initWithFrame:CGRectMake([[UIScreen mainScreen] bounds].size.width/2-85, 105, 171, 28)];
+    [txtlabl setFont:[UIFont fontWithName:@"Avenir Medium" size:25]];
+    [txtlabl setTextAlignment:NSTextAlignmentCenter];
+    txtlabl.text = @"Say something";
+    [txtlabl setTextColor:PURPLE_COLOR];
+    [self.view addSubview:txtlabl];
     self.randomWord = [[UILabel alloc] initWithFrame:CGRectMake([[UIScreen mainScreen] bounds].size.width/2-150, 130, 300, 50)];
     [self.randomWord setFont:[UIFont fontWithName:@"Avenir Medium" size:35]];
     [self.randomWord setTextAlignment:NSTextAlignmentCenter];
@@ -61,15 +70,7 @@
     [self.buttonSend addTarget:self action:@selector(actionSend:) forControlEvents:UIControlEventTouchUpInside];
     [self.viewInput addSubview:self.buttonSend];
     [self.view addSubview:self.viewInput];
-    UIImageView *img = [[UIImageView alloc] initWithFrame:CGRectMake([[UIScreen mainScreen] bounds].size.width/2-66, 50, 132, 52)];
-    img.image = [UIImage imageNamed:@"compose_chatbox_background"];
-    [self.view addSubview:img];
-    UILabel *txtlabl = [[UILabel alloc] initWithFrame:CGRectMake([[UIScreen mainScreen] bounds].size.width/2-85, 105, 171, 28)];
-    [txtlabl setFont:[UIFont fontWithName:@"Avenir Medium" size:25]];
-    [txtlabl setTextAlignment:NSTextAlignmentCenter];
-    txtlabl.text = @"Say something";
-    [txtlabl setTextColor:PURPLE_COLOR];
-    [self.view addSubview:txtlabl];
+
 }
 
 - (void)viewDidLoad {
