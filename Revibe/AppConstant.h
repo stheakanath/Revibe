@@ -76,10 +76,6 @@
 #define		PF_TITLES_TITLE						@"title"
 #define		PF_TITLES_INDEX						@"index"
 
-#define		PF_USER2_CLASS_NAME					@"User2"
-#define		PF_USER2_USER						@"user"
-#define		PF_USER2_EMAIL						@"email"
-#define		PF_USER2_LIKES						@"likes"
 
 //-------------------------------------------------------------------------------------------------------------------------------------------------
 #define		NOTIFICATION_APP_STARTED			@"NCAppStarted"

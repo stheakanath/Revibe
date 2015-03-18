@@ -101,14 +101,35 @@ void DeleteMessageItem(PFObject *message) {
 }
 
 void UpdateUserLikes(PFObject *conversation, int amout) {
-	PFUser *user = [PFUser currentUser];
-    PFUser *tomodify;
-    if ([user.username isEqualToString:conversation[PF_CONVERSATIONS_USER1][@"username"]])
-        tomodify = conversation[PF_CONVERSATIONS_USER2];
-    else if ([user.username isEqualToString:conversation[PF_CONVERSATIONS_USER2][@"username"]])
-        tomodify = conversation[PF_CONVERSATIONS_USER1];
-    [tomodify incrementKey:@"likes" byAmount:[NSNumber numberWithInt:amout]];
-    [tomodify saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
-        if (error != nil) NSLog(@"UpdateUserLikes save error.");
-    }];
+    PFUser *user = [PFUser currentUser];
+    PFUser *user1 = conversation[PF_CONVERSATIONS_USER1];
+    PFUser *user2 = conversation[PF_CONVERSATIONS_USER2];
+    PFQuery *query = [PFQuery queryWithClassName:PF_USER_CLASS_NAME];
+    if ([user.objectId isEqualToString:user1.objectId]) [query whereKey:PF_USER_OBJECTID equalTo:user2.objectId];
+    if ([user.objectId isEqualToString:user2.objectId]) [query whereKey:PF_USER_OBJECTID equalTo:user1.objectId];
+    [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+         if ([objects count] > 0 && !error) {
+             PFObject *tmp = [objects firstObject];
+             PFObject *updatedUser = [PFObject objectWithClassName:PF_USER_CLASS_NAME];
+             updatedUser[PF_USER_OBJECTID] = tmp[PF_USER_OBJECTID];
+             updatedUser[PF_USER_USERNAME] = tmp[PF_USER_USERNAME];
+             updatedUser[PF_USER_PASSWORD] = tmp[PF_USER_PASSWORD];
+             updatedUser[PF_USER_EMAIL] = tmp[PF_USER_EMAIL];
+             updatedUser[PF_USER_INDEX] = tmp[PF_USER_INDEX];
+             updatedUser[PF_USER_RANDOM] = tmp[PF_USER_RANDOM];
+             updatedUser[PF_USER_LIKES] = tmp[PF_USER_LIKES];
+             [updatedUser incrementKey:PF_USER_LIKES byAmount:[NSNumber numberWithInt:amout]];
+             updatedUser[PF_USER_NOTIFICATION] = tmp[PF_USER_NOTIFICATION];
+//             [tmp deleteInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+//                 NSLog(@"called");
+//                 if (error != nil) NSLog(@"DeleteMessageItem delete error.");
+//             }];
+//    
+//             [updatedUser saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+//                 NSLog(@"called");
+//                 if (error != nil) NSLog(@"UpdateConversationLiked network error.");
+//             }];
+        }
+         else NSLog(@"UpdateUserLikes query error.");
+     }];
 }
