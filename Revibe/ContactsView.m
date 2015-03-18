@@ -49,6 +49,7 @@
     self.fieldUsername = [[UITextField alloc] initWithFrame:CGRectMake(15, 0, 250, 54)];
     [self.fieldUsername setPlaceholder:@"Type username and add..."];
     [self.fieldUsername setFont:[UIFont fontWithName:@"Avenir Medium" size:17]];
+    [self.fieldUsername setDelegate:self];
     [self.viewHeader addSubview:self.fieldUsername];
     UIButton *add = [UIButton buttonWithType:UIButtonTypeCustom];
     [add setBackgroundImage:[UIImage imageNamed:@"contacts_add"] forState:UIControlStateNormal];
@@ -345,6 +346,7 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     NSLog(@"%li %li", (long)indexPath.row, (long)indexPath.section);
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    [[[UIApplication sharedApplication] keyWindow] endEditing:YES];
     if (indexPath.section == 0 && indexPath.row == 0) {
         ContactsCell *cell = (ContactsCell *) [tableView cellForRowAtIndexPath:indexPath];
         [cell actionSend:self];
@@ -428,6 +430,7 @@
 #pragma mark - UITextField delegate
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField {
+    [[[UIApplication sharedApplication] keyWindow] endEditing:YES];
     if (textField == fieldUsername)
         [self actionAdd:nil];
     return YES;
