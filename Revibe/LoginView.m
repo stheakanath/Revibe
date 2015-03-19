@@ -155,8 +155,7 @@ int keyboardHeight;
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
     if (buttonIndex != alertView.cancelButtonIndex)
     {
-        NSString *username = [[fieldUsername.text lowercaseString] stringByTrimmingCharactersInSet:
-                              [NSCharacterSet whitespaceCharacterSet]];
+        NSString *username = fieldUsername.text;
         PFQuery *query = [PFQuery queryWithClassName:PF_USER_CLASS_NAME];
         [query whereKey:PF_USER_USERNAME equalTo:username];
         [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {

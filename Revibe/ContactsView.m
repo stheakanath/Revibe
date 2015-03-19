@@ -23,7 +23,7 @@
 
 @property (strong, nonatomic) UIView *viewHeader;
 @property (strong, nonatomic) UITextField *fieldUsername;
-@property (strong, nonatomic) UIImageView *addUser;
+@property (strong, nonatomic) UIButton *add;
 
 @end
 
@@ -50,12 +50,13 @@
     [self.fieldUsername setPlaceholder:@"Type username and add..."];
     [self.fieldUsername setFont:[UIFont fontWithName:@"Avenir Medium" size:17]];
     [self.fieldUsername setDelegate:self];
+    [self.fieldUsername setAutocorrectionType:UITextAutocorrectionTypeNo];
     [self.viewHeader addSubview:self.fieldUsername];
-    UIButton *add = [UIButton buttonWithType:UIButtonTypeCustom];
-    [add setBackgroundImage:[UIImage imageNamed:@"contacts_add"] forState:UIControlStateNormal];
-    [add setFrame:CGRectMake([[UIScreen mainScreen] bounds].size.width - 35, 15, 20, 20)];
-    [add addTarget:self action:@selector(actionAdd:) forControlEvents:UIControlEventTouchUpInside];
-    [self.viewHeader addSubview:add];
+    self.add = [UIButton buttonWithType:UIButtonTypeCustom];
+    [self.add setBackgroundImage:[UIImage imageNamed:@"contacts_add"] forState:UIControlStateNormal];
+    [self.add setFrame:CGRectMake([[UIScreen mainScreen] bounds].size.width - 35, 15, 20, 20)];
+    [self.add addTarget:self action:@selector(actionAdd:) forControlEvents:UIControlEventTouchUpInside];
+    [self.viewHeader addSubview:self.add];
 }
 
 - (void) viewDidLoad {
@@ -99,12 +100,10 @@
 }
 
 - (void)viewDidAppear:(BOOL)animated {
-    if (UIGestureRecognizerStateBegan) {
         [UIView animateWithDuration:.45f delay:.2f  options:UIViewAnimationOptionCurveEaseOut animations:^ {
-            _addUser.transform = CGAffineTransformMakeScale(4.0f, 4.0f);
-            _addUser.transform = CGAffineTransformMakeScale(1.0f, 1.0f);
+            self.add.transform = CGAffineTransformMakeScale(4.0f, 4.0f);
+            self.add.transform = CGAffineTransformMakeScale(1.0f, 1.0f);
         } completion:^(BOOL finished) {}];
-    }
     UIImageView *contactsViewBackground = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"contacts_background.png"]];
     [contactsViewBackground setFrame:self.tableView.frame];
     self.tableView.backgroundView = contactsViewBackground;

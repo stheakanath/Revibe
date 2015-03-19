@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		522E87EE1ABA51470039670B /* noMessageImage_iPad.png in Resources */ = {isa = PBXBuildFile; fileRef = 522E87EC1ABA51470039670B /* noMessageImage_iPad.png */; };
+		522E87EF1ABA51470039670B /* noMessageImage_iPad@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 522E87ED1ABA51470039670B /* noMessageImage_iPad@2x.png */; };
 		EB10522B1AB670B7006CEBBE /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = EB10522A1AB670B7006CEBBE /* main.m */; };
 		EB10522E1AB670B7006CEBBE /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = EB10522D1AB670B7006CEBBE /* AppDelegate.m */; };
 		EB1052341AB670B7006CEBBE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EB1052321AB670B7006CEBBE /* Main.storyboard */; };
@@ -108,6 +110,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		522E87EC1ABA51470039670B /* noMessageImage_iPad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = noMessageImage_iPad.png; sourceTree = "<group>"; };
+		522E87ED1ABA51470039670B /* noMessageImage_iPad@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "noMessageImage_iPad@2x.png"; sourceTree = "<group>"; };
 		EB1052251AB670B7006CEBBE /* Revibe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Revibe.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EB1052291AB670B7006CEBBE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EB10522A1AB670B7006CEBBE /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -383,6 +387,8 @@
 		EB1052A91AB6A28E006CEBBE /* Images to Sort */ = {
 			isa = PBXGroup;
 			children = (
+				522E87EC1ABA51470039670B /* noMessageImage_iPad.png */,
+				522E87ED1ABA51470039670B /* noMessageImage_iPad@2x.png */,
 				EBEAA6071AB7BE59005DB78B /* recipients_checked_no@2x.png */,
 				EBEAA6081AB7BE59005DB78B /* recipients_checked_yes@2x.png */,
 				EBEAA6091AB7BE59005DB78B /* recipients_invite@2x.png */,
@@ -527,7 +533,7 @@
 				TargetAttributes = {
 					EB1052241AB670B7006CEBBE = {
 						CreatedOnToolsVersion = 6.1.1;
-						DevelopmentTeam = SNE84GN9W7;
+						DevelopmentTeam = S442EUWAWZ;
 						SystemCapabilities = {
 							com.apple.InAppPurchase = {
 								enabled = 0;
@@ -536,6 +542,7 @@
 					};
 					EB10523D1AB670B7006CEBBE = {
 						CreatedOnToolsVersion = 6.1.1;
+						DevelopmentTeam = S442EUWAWZ;
 						TestTargetID = EB1052241AB670B7006CEBBE;
 					};
 				};
@@ -569,6 +576,7 @@
 				EB1052B41AB6A683006CEBBE /* revibe_logo@2x.png in Resources */,
 				EB1052341AB670B7006CEBBE /* Main.storyboard in Resources */,
 				EBEAA5D81AB78229005DB78B /* settings_on@2x.png in Resources */,
+				522E87EE1ABA51470039670B /* noMessageImage_iPad.png in Resources */,
 				EB1052C21AB6C185006CEBBE /* contacts_add@2x.png in Resources */,
 				EBE4BBFC1AB6CFBE004C93AB /* tab2a@2x.png in Resources */,
 				EBEAA5D41AB78229005DB78B /* settings_arrow@2x.png in Resources */,
@@ -588,6 +596,7 @@
 				EBEAA6051AB7B30F005DB78B /* chat_incoming1@2x.png in Resources */,
 				EBEAA5DE1AB78EF1005DB78B /* account_arrow@2x.png in Resources */,
 				EBEAA5EE1AB79E64005DB78B /* main_liked_no@2x.png in Resources */,
+				522E87EF1ABA51470039670B /* noMessageImage_iPad@2x.png in Resources */,
 				EBEAA6011AB7B30F005DB78B /* chat_outgoing2@2x.png in Resources */,
 				EBEAA5B81AB77120005DB78B /* tab1b@2x.png in Resources */,
 				EBEAA5F01AB79E64005DB78B /* main_unread@2x.png in Resources */,
@@ -767,6 +776,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Frameworks",
@@ -776,6 +786,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -786,6 +797,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Frameworks",
@@ -795,6 +807,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;

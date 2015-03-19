@@ -50,7 +50,12 @@
         DeleteMessageItem(conversations[indexPath.row]);
         [conversations removeObjectAtIndex:indexPath.row];
         [self.tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
-        UIImageView *noMessageBackgroundView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"noMessageImage.png"]];
+        UIImageView *noMessageBackgroundView;
+        if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) {
+            noMessageBackgroundView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"noMessageImage_iPad.png"]];
+        } else {
+            noMessageBackgroundView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"noMessageImage.png"]];
+        }
         if (conversations.count == 0) {
             [noMessageBackgroundView setFrame:self.tableView.frame];
             self.tableView.backgroundView = noMessageBackgroundView;
@@ -112,7 +117,12 @@
 #pragma mark - Helper methods
 
 - (void)countUnread {
-    UIImageView *noMessageBackgroundView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"noMessageImage.png"]];
+    UIImageView *noMessageBackgroundView;
+    if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) {
+        noMessageBackgroundView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"noMessageImage_iPad.png"]];
+    } else {
+         noMessageBackgroundView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"noMessageImage.png"]];
+    }
     UIImageView *mainBackgroundView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@""]];
     mainBackgroundView.alpha = .55f;
     if (conversations.count > 0) {
