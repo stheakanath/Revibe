@@ -11,7 +11,6 @@
 		522E87EF1ABA51470039670B /* noMessageImage_iPad@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 522E87ED1ABA51470039670B /* noMessageImage_iPad@2x.png */; };
 		EB10522B1AB670B7006CEBBE /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = EB10522A1AB670B7006CEBBE /* main.m */; };
 		EB10522E1AB670B7006CEBBE /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = EB10522D1AB670B7006CEBBE /* AppDelegate.m */; };
-		EB1052341AB670B7006CEBBE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EB1052321AB670B7006CEBBE /* Main.storyboard */; };
 		EB1052361AB670B7006CEBBE /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EB1052351AB670B7006CEBBE /* Images.xcassets */; };
 		EB1052451AB670B7006CEBBE /* RevibeTests.m in Sources */ = {isa = PBXBuildFile; fileRef = EB1052441AB670B7006CEBBE /* RevibeTests.m */; };
 		EB1052501AB6713F006CEBBE /* MainView.m in Sources */ = {isa = PBXBuildFile; fileRef = EB10524F1AB6713F006CEBBE /* MainView.m */; };
@@ -117,7 +116,6 @@
 		EB10522A1AB670B7006CEBBE /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		EB10522C1AB670B7006CEBBE /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		EB10522D1AB670B7006CEBBE /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		EB1052331AB670B7006CEBBE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		EB1052351AB670B7006CEBBE /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		EB10523E1AB670B7006CEBBE /* RevibeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RevibeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		EB1052431AB670B7006CEBBE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -329,7 +327,6 @@
 				EB1052691AB6734B006CEBBE /* Firebase.framework */,
 				EB10526A1AB6734B006CEBBE /* Parse.framework */,
 				EB10526B1AB6734B006CEBBE /* ParseUI.framework */,
-				EB1052321AB670B7006CEBBE /* Main.storyboard */,
 				EB1052291AB670B7006CEBBE /* Info.plist */,
 				EB10522A1AB670B7006CEBBE /* main.m */,
 			);
@@ -574,7 +571,6 @@
 				EBEAA5DC1AB78B6A005DB78B /* blocked_unblock@2x.png in Resources */,
 				EBEAA5EC1AB79E64005DB78B /* main_background2.png in Resources */,
 				EB1052B41AB6A683006CEBBE /* revibe_logo@2x.png in Resources */,
-				EB1052341AB670B7006CEBBE /* Main.storyboard in Resources */,
 				EBEAA5D81AB78229005DB78B /* settings_on@2x.png in Resources */,
 				522E87EE1ABA51470039670B /* noMessageImage_iPad.png in Resources */,
 				EB1052C21AB6C185006CEBBE /* contacts_add@2x.png in Resources */,
@@ -679,17 +675,6 @@
 			targetProxy = EB10523F1AB670B7006CEBBE /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
-
-/* Begin PBXVariantGroup section */
-		EB1052321AB670B7006CEBBE /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				EB1052331AB670B7006CEBBE /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		EB1052461AB670B7006CEBBE /* Debug */ = {
