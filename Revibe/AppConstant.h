@@ -66,6 +66,11 @@
 #define		PF_INDEX_CLASS_NAME					@"Index"
 #define		PF_INDEX_LAST						@"last"
 
+#define		PF_USER2_CLASS_NAME					@"User2"
+#define		PF_USER2_USER						@"user"
+#define		PF_USER2_EMAIL						@"email"
+#define		PF_USER2_LIKES						@"likes"
+
 #define		NOTIFICATION_APP_STARTED			@"NCAppStarted"
 #define		NOTIFICATION_USER_LOGGED_IN			@"NCUserLoggedIn"
 #define		NOTIFICATION_USER_LOGGED_OUT		@"NCUserLoggedOut"

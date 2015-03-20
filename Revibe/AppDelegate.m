@@ -14,17 +14,8 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     [Parse setApplicationId:@"MDafzB3mWLkAme4YPD0sg6ictEoLS8S1Ujz7ntSH" clientKey:@"IVOmK1mN1jaFIif00ivdmVr8wLdoCrWzwry72Bg6"];
-//    if ([application respondsToSelector:@selector(registerUserNotificationSettings:)]) {
-//        UIUserNotificationType userNotificationTypes = (UIUserNotificationTypeAlert | UIUserNotificationTypeBadge | UIUserNotificationTypeSound);
-//        UIUserNotificationSettings *settings = [UIUserNotificationSettings settingsForTypes:userNotificationTypes categories:nil];
-//        [application registerUserNotificationSettings:settings];
-//        [application registerForRemoteNotifications];
-//    }
-    UIUserNotificationType userNotificationTypes = (UIUserNotificationTypeAlert |
-                                                    UIUserNotificationTypeBadge |
-                                                    UIUserNotificationTypeSound);
-    UIUserNotificationSettings *settings = [UIUserNotificationSettings settingsForTypes:userNotificationTypes
-                                                                             categories:nil];
+    UIUserNotificationType userNotificationTypes = (UIUserNotificationTypeAlert | UIUserNotificationTypeBadge | UIUserNotificationTypeSound);
+    UIUserNotificationSettings *settings = [UIUserNotificationSettings settingsForTypes:userNotificationTypes categories:nil];
     [application registerUserNotificationSettings:settings];
     [application registerForRemoteNotifications];
     [PFImageView class];
@@ -63,8 +54,18 @@
 
 
 - (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo {
-    [PFPush handlePush:userInfo];
+    if (self.tabBarController.selectedIndex != 0) {
+        [PFPush handlePush:userInfo];
+    }
     PostNotification(NOTIFICATION_PUSH_RECEIVED);
+}
+
+- (void)applicationDidBecomeActive:(UIApplication *)application {
+    PFInstallation *currentInstallation = [PFInstallation currentInstallation];
+    if (currentInstallation.badge != 0) {
+        currentInstallation.badge = 0;
+        [currentInstallation saveEventually];
+    }
 }
 
 @end

@@ -79,11 +79,30 @@
     user.email = fieldEmail.text;
     [user saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
         if (error == nil) {
+            [self saveUser2:user];
             [ProgressHUD showSuccess:@"Saved."];
             [self.navigationController popViewControllerAnimated:YES];
         } else [ProgressHUD showError:error.userInfo[@"error"]];
      }];
 }
+
+- (void)saveUser2:(PFUser *)user {
+    PFQuery *query = [PFQuery queryWithClassName:PF_USER2_CLASS_NAME];
+    [query whereKey:PF_USER2_USER equalTo:user];
+    [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+         if (error == nil) {
+             PFObject *user2 = [objects firstObject];
+             if (user2 != nil) {
+                 user2[PF_USER2_EMAIL] = user.email;
+                 [user2 saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+                      [ProgressHUD showSuccess:@"Saved."];
+                      [self.navigationController popViewControllerAnimated:YES];
+                  }];
+             } else [ProgressHUD showError:@"No User2 item found."];
+         } else [ProgressHUD showError:error.userInfo[@"error"]];
+     }];
+}
+
 
 #pragma mark - User actions
 

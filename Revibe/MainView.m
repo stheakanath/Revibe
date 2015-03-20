@@ -82,6 +82,12 @@
     conversations = [[NSMutableArray alloc] init];
 }
 
+- (void)viewWillAppear:(BOOL)animated {
+    if ([PFUser currentUser] != nil)
+        [self loadConversations];
+    else LoginUser(self);
+}
+
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
     if ([PFUser currentUser] != nil)

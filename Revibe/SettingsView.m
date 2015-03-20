@@ -152,6 +152,7 @@
         } completion:^(BOOL finished) {}];
     }
     self.tableView.tableHeaderView = viewHeader;
+    self.tableView.bounces = NO;
     [super viewDidAppear:animated];
     if ([PFUser currentUser] != nil)
         [self loadUser];
@@ -160,25 +161,24 @@
 
 #pragma mark - Backend actions
 
-/**********************************************************************************************************************
- WHY DO WE NEED TO QUERY IN ORDER TO GET LIKES FOR CURRENTUSER??? SEE AND FIX THIS
- *******************************************************************************************************************/
 - (void)loadUser {
     PFUser *user = [PFUser currentUser];
     labelUsername.text = user[PF_USER_USERNAME];
-    PFQuery *query = [PFQuery queryWithClassName:PF_USER_CLASS_NAME];
-    [query whereKey:PF_USER_USERNAME equalTo:user[PF_USER_USERNAME]];
-    [query setCachePolicy:kPFCachePolicyCacheThenNetwork];
+    PFQuery *query = [PFQuery queryWithClassName:PF_USER2_CLASS_NAME];
+    [query whereKey:PF_USER2_USER equalTo:user];
     [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
-        if (error == nil)
-            labelLikes.text = [NSString stringWithFormat:@"%d", [[objects firstObject][PF_USER_LIKES] intValue]];
-        else if (error.code != 120) [ProgressHUD showError:error.userInfo[@"error"]];
-    }];
+         if (error == nil) {
+             PFObject *user2 = [objects firstObject];
+             int likes = [user2[PF_USER2_LIKES] intValue];
+             labelLikes.text = [NSString stringWithFormat:@"%d", likes];
+         }
+         else [ProgressHUD showError:error.userInfo[@"error"]];
+         [self.refreshControl endRefreshing];
+     }];
     random = [user[PF_USER_RANDOM] boolValue];
     notification = [user[PF_USER_NOTIFICATION] boolValue];
     [self updateViewDetails];
 }
-
 #pragma mark - User actions
 
 - (void)actionLogout {

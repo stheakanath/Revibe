@@ -53,12 +53,15 @@
     contactsView = contactsView_;
     if (likes) [self showLikes]; else [self hideLikes];
     labelUsername.text = (name != nil) ? name : user[PF_USER_USERNAME];
-    PFQuery *query = [PFQuery queryWithClassName:PF_USER_CLASS_NAME];
-    [query whereKey:PF_USER_USERNAME equalTo:user[PF_USER_USERNAME]];
+    PFQuery *query = [PFQuery queryWithClassName:PF_USER2_CLASS_NAME];
+    [query whereKey:PF_USER2_USER equalTo:user];
     [query setCachePolicy:kPFCachePolicyCacheThenNetwork];
     [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
-         if (error == nil)
-             labelLikes.text = [NSString stringWithFormat:@"%d", [[objects firstObject][PF_USER_LIKES] intValue]];
+         if (error == nil) {
+             PFObject *user2 = [objects firstObject];
+             int likes = [user2[PF_USER2_LIKES] intValue];
+             labelLikes.text = [NSString stringWithFormat:@"%d", likes];
+         }
          else if (error.code != 120) [ProgressHUD showError:error.userInfo[@"error"]];
      }];
     self.labelLikes.hidden = YES;

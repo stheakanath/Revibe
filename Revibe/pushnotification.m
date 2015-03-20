@@ -51,7 +51,10 @@ void SendPushMessage(PFObject *conversation, NSString *text)
 
 		PFPush *push = [[PFPush alloc] init];
 		[push setQuery:queryInstallation];
-		[push setMessage:text];
+        NSDictionary *data = [NSDictionary dictionaryWithObjectsAndKeys: text, @"alert",
+                              @"Increment", @"badge",
+                              nil];
+        [push setData:data];
 		[push sendPushInBackgroundWithBlock:^(BOOL succeeded, NSError *error)
 		{
 			if (error != nil)
@@ -62,54 +65,24 @@ void SendPushMessage(PFObject *conversation, NSString *text)
 	}
 }
 
-//-------------------------------------------------------------------------------------------------------------------------------------------------
-void SendPushUnread(PFObject *conversation)
-//-------------------------------------------------------------------------------------------------------------------------------------------------
-{
+
+void SendPushLiked(PFObject *conversation) {
 	PFUser *user = [PFUser currentUser];
 	PFUser *user1 = conversation[PF_CONVERSATIONS_USER1];
 	PFUser *user2 = conversation[PF_CONVERSATIONS_USER2];
-
 	PFUser *userSend = [user.objectId isEqualToString:user1.objectId] ? user2 : user1;
-	if ([userSend[PF_USER_NOTIFICATION] boolValue])
-	{
+    PFUser *name = [user.objectId isEqualToString:user1.objectId] ? user1 : user2;
+	if ([userSend[PF_USER_NOTIFICATION] boolValue]) {
 		PFQuery *queryInstallation = [PFInstallation query];
 		[queryInstallation whereKey:PF_INSTALLATION_USER equalTo:userSend];
-
 		PFPush *push = [[PFPush alloc] init];
 		[push setQuery:queryInstallation];
-		[push setMessage:MESSAGE_PUSH_UNREAD];
-		[push sendPushInBackgroundWithBlock:^(BOOL succeeded, NSError *error)
-		{
-			if (error != nil)
-			{
-				NSLog(@"SendPushUnread send error.");
-			}
-		}];
-	}
-}
-
-//-------------------------------------------------------------------------------------------------------------------------------------------------
-void SendPushLiked(PFObject *conversation)
-//-------------------------------------------------------------------------------------------------------------------------------------------------
-{
-	PFUser *user = [PFUser currentUser];
-	PFUser *user1 = conversation[PF_CONVERSATIONS_USER1];
-	PFUser *user2 = conversation[PF_CONVERSATIONS_USER2];
-
-	PFUser *userSend = [user.objectId isEqualToString:user1.objectId] ? user2 : user1;
-	if ([userSend[PF_USER_NOTIFICATION] boolValue])
-	{
-		PFQuery *queryInstallation = [PFInstallation query];
-		[queryInstallation whereKey:PF_INSTALLATION_USER equalTo:userSend];
-
-		PFPush *push = [[PFPush alloc] init];
-		[push setQuery:queryInstallation];
-		[push setMessage:MESSAGE_PUSH_LIKED];
-		[push sendPushInBackgroundWithBlock:^(BOOL succeeded, NSError *error)
-		{
-			if (error != nil)
-			{
+        NSDictionary *data = [NSDictionary dictionaryWithObjectsAndKeys: [NSString stringWithFormat:@"%@ liked your message!", name[@"username"]], @"alert",
+                              @"Increment", @"badge",
+                              nil];
+		[push setData:data];
+		[push sendPushInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+			if (error != nil) {
 				NSLog(@"SendPushLiked send error.");
 			}
 		}];

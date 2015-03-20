@@ -198,14 +198,31 @@
     user[PF_USER_NOTIFICATION] = @YES;
     user[PF_USER_LIKES] = @0;
     [user signUpInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
-        if (error == nil) {
-            ParsePushUserAssign();
-            PostNotification(NOTIFICATION_USER_LOGGED_IN);
-            [ProgressHUD showSuccess:@"Registration was successful."];
-            [self dismissViewControllerAnimated:YES completion:^{ if (delegate != nil) [delegate didRegisterSucessfully]; }];
-        } else [ProgressHUD showError:error.userInfo[@"error"]];
+        if (error == nil)
+            [self createUser2:user];
+        else [ProgressHUD showError:error.userInfo[@"error"]];
      }];
 }
+
+- (void)createUser2:(PFUser *)user {
+    PFObject *object = [PFObject objectWithClassName:PF_USER2_CLASS_NAME];
+    object[PF_USER2_USER] = user;
+    object[PF_USER2_EMAIL] = user.email;
+    object[PF_USER2_LIKES] = @0;
+    [object saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+         if (error == nil) {
+             ParsePushUserAssign();
+             PostNotification(NOTIFICATION_USER_LOGGED_IN);
+             [ProgressHUD showSuccess:@"Registration was successful."];
+             [self dismissViewControllerAnimated:YES completion:^{ if (delegate != nil) [delegate didRegisterSucessfully]; }];
+         } else {
+             [ProgressHUD showError:error.userInfo[@"error"]];
+             [[PFUser currentUser] deleteInBackground];
+             [PFUser logOut];
+         }
+     }];
+}
+
 
 #pragma mark - UITextField delegate
 
