@@ -151,6 +151,7 @@
          if (initialized) {
              [self.tableView reloadData];
              [self scrollToBottom];
+             NSLog(@"i have been changed");
          }
      }];
     handle = [firebase observeEventType:FEventTypeValue withBlock:^(FDataSnapshot *snapshot) {
@@ -199,13 +200,33 @@
         [formatter setTimeZone:[NSTimeZone timeZoneForSecondsFromGMT:0]];
         NSString *dateStr = [formatter stringFromDate:[NSDate date]];
         NSDictionary *values = @{@"text":text, @"userId":user.objectId, @"date":dateStr};
-        [[firebase childByAutoId] setValue:values withCompletionBlock:^(NSError *error, Firebase *ref) {
-             if (error == nil) {
-                 SendPushMessage(conversation, text);
-                 UpdateConversation(conversation, [ref key],text);
-             }
-             else [ProgressHUD showError:@"Network error"];
-         }];
+        PFObject *user1 = conversation[@"user1"];
+        PFObject *user2 = conversation[@"user2"];
+        PFObject *opuser;
+        if ([user1.objectId isEqualToString:user.objectId])
+            opuser = user2;
+        else
+            opuser = user1;
+        PFObject *blockedBy = conversation[@"blockedBy"];
+        if (blockedBy == nil) {
+            [[firebase childByAutoId] setValue:values withCompletionBlock:^(NSError *error, Firebase *ref) {
+                if (error == nil) {
+                    SendPushMessage(conversation, text);
+                    UpdateConversation(conversation, [ref key],text);
+                }
+                else [ProgressHUD showError:@"Network error"];
+            }];
+        } else {
+            NSLog(@"hey");
+            NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+            [formatter setDateFormat:@"yyyy'-'MM'-'dd'T'HH':'mm':'ss'.'zzz'"];
+            [formatter setTimeZone:[NSTimeZone timeZoneForSecondsFromGMT:0]];
+            NSDate *date = [formatter dateFromString:dateStr];
+            [messages addObject:@{@"text":text, @"userId":user.objectId, @"date":date}];
+            [keys addObject:[messages objectAtIndex:0]];
+            [self.tableView reloadData];
+           [self scrollToBottom];
+        }
     }
     textInput.text = nil;
     [self textViewDidChange:nil];
@@ -289,6 +310,7 @@
 #pragma mark - Helper methods
 
 - (void)scrollToBottom {
+    NSLog(@"SUP.");
     if ([messages count] != 0) {
         NSIndexPath *indexPath = [NSIndexPath indexPathForRow:[messages count]-1 inSection:0];
         [self.tableView scrollToRowAtIndexPath:indexPath atScrollPosition:UITableViewScrollPositionTop animated:YES];

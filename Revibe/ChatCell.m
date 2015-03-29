@@ -70,6 +70,7 @@
     chatView = chatView_;
     indexPath = indexPath_;
     labelMessage.text = message[@"text"];
+    NSLog(labelMessage.text);
     CGSize sizeText = [labelMessage sizeThatFits:CGSizeMake(290, MAXFLOAT)];
     CGFloat widhtText = fmaxf(20, sizeText.width);
     CGFloat heightText = sizeText.height;

@@ -19,6 +19,7 @@
 #define		COLOR_INCOMING_LIKED				HEXCOLOR(0x7BE3FFFF)
 #define		COLOR_OUTGOING_PLAIN				HEXCOLOR(0xC7E0A2FF)
 #define		COLOR_OUTGOING_LIKED				HEXCOLOR(0xD5F49FFF)
+#define     COLOR_GOLD                          HEXCOLOR(0xE8D05DFF)
 
 //-------------------------------------------------------------------------------------------------------------------------------------------------
 #define		MESSAGE_INVITE_ADDRESSBOOK			@"Message me anything on Revibe, I won't know it's you. My username is %@.\nhttp://revibeapp.com"

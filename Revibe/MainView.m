@@ -104,7 +104,7 @@
     PFQuery *query2 = [PFQuery queryWithClassName:PF_CONVERSATIONS_CLASS_NAME];
     [query2 whereKey:PF_CONVERSATIONS_USER2 equalTo:user];
     PFQuery *queryCompound = [PFQuery orQueryWithSubqueries:@[query1, query2]];
-    [queryCompound whereKey:PF_CONVERSATIONS_BLOCKEDBY equalTo:[NSNull null]];
+    //[queryCompound whereKey:PF_CONVERSATIONS_BLOCKEDBY equalTo:[NSNull null]];
     [queryCompound includeKey:PF_CONVERSATIONS_USER1];
     [queryCompound includeKey:PF_CONVERSATIONS_USER2];
     [queryCompound orderByDescending:PF_CONVERSATIONS_CREATEDAT];

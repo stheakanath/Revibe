@@ -48,7 +48,7 @@
     [txtlabl setFont:[UIFont fontWithName:@"Avenir Medium" size:25]];
     [txtlabl setTextAlignment:NSTextAlignmentCenter];
     txtlabl.text = @"Say something";
-    [txtlabl setTextColor:PURPLE_COLOR];
+    [txtlabl setTextColor:COLOR_GOLD];
     [self.view addSubview:txtlabl];
     self.randomWord = [[UILabel alloc] initWithFrame:CGRectMake([[UIScreen mainScreen] bounds].size.width/2-150, 130, 300, 50)];
     [self.randomWord setFont:[UIFont fontWithName:@"Avenir Medium" size:35]];
