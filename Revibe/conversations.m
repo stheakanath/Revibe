@@ -26,6 +26,8 @@ void CreateConversation(PFUser *user, NSString *message) {
     conversation[PF_CONVERSATIONS_UNREAD1] = @NO;
     conversation[PF_CONVERSATIONS_UNREAD2] = @YES;
     conversation[PF_CONVERSATIONS_LIKED] = [NSArray array];
+    conversation[@"deleted"] = [NSArray array];
+    
     [conversation saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
         if (error == nil) {
             CreateFirebaseItem(conversation, message);
@@ -88,9 +90,21 @@ void UpdateConversationLiked(PFObject *conversation, NSMutableArray *liked) {
 }
 
 void DeleteMessageItem(PFObject *message) {
-    [message deleteInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
-        if (error != nil) NSLog(@"DeleteMessageItem delete error.");
-    }];
+    NSLog(@"%@", message[@"deleted"]);
+    NSMutableArray* deleted = [message[@"deleted"] mutableCopy];
+    [deleted addObject:[PFUser currentUser][@"username"]];
+    message[@"deleted"] = deleted;
+    if ([deleted count] == 2) {
+        NSLog(@"Both users have deleted!");
+        [message deleteInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+            if (error != nil) NSLog(@"DeleteMessageItem delete error.");
+        }];
+    } else {
+         NSLog(@"Only one user has deleted!");
+        [message saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+            if (error != nil) NSLog(@"DeleteMessageItem network error.");
+        }];
+    }
 }
 
 void UpdateUserLikes(PFObject *conversation, int amout) {

@@ -112,7 +112,13 @@
     [queryCompound findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
         if (error == nil) {
             [conversations removeAllObjects];
-            [conversations addObjectsFromArray:objects];
+            for (PFObject* obj in objects) {
+                NSLog(@"%@", obj[@"deleted"]);
+                NSLog(@"%@", user);
+                if (![obj[@"deleted"] containsObject:user[@"username"]]) {
+                    [conversations addObject:obj];
+                }
+            }
             [self.tableView reloadData];
             [self countUnread];
         } else [ProgressHUD showError:error.userInfo[@"error"]];
